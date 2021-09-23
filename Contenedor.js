@@ -1,12 +1,12 @@
 const fs = require('fs');
 
 class Contenedor{
-    constructor(nombre_archivo){
-        this.nombre_archivo = nombre_archivo;
+    constructor(file){
+        this.file = file;
     }
 
-    const save = (objeto) => {
-        fs.promises.appendFile('./productos.json', objeto)
+    save(producto){
+        fs.promises.appendFile(this.file, JSON.stringify(producto))
         .then((contenido) => {
             console.log(contenido);
         })
@@ -14,7 +14,7 @@ class Contenedor{
             console.log(err);    
         })
     }
-    async function getById(id) {
+    /* async function getById(id) {
         try {
             await fs.promises.readFile('./productos.json', 'utf-8');
             console.log("guardado!");
@@ -40,7 +40,7 @@ class Contenedor{
         catch (err) {
             console.log(err);
         }
-    }
+    } */
 }
 
 module.exports = Contenedor;
