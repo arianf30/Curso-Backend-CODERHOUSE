@@ -57,7 +57,6 @@ const funcDeleteAll = async () => {
 
 
 /* ----- EJECUTAR ----- */
-const EJECUTAR = 
 funcSave(producto1);
 //funcGetById(1);
 //funcGetAll();
