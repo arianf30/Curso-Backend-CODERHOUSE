@@ -32,6 +32,30 @@ class Contenedor{
         }
     }
 
+    // FUNCIÓN PARA EDITAR
+    async edit(producto) {
+        try {
+            // Traer productos
+            const contenido = await fs.promises.readFile(this.file, 'utf-8');
+            const listaProductos = JSON.parse(contenido);
+
+            // NUEVO ARRAY
+            var productosNuevo = listaProductos.map(item => {
+                if (item.id === producto.id) {
+                    return { ...producto }
+                }
+                return { ...item };
+            });
+
+            const productosString = JSON.stringify(productosNuevo, null, 2);
+            await fs.promises.writeFile(this.file, productosString);
+            // Retorna el id guardado
+            return producto.id;
+        } catch ( error ) {
+            console.log('error: ', error);
+        }
+    }
+
     // FUNCIÓN PARA RETORNAR UN ID ESPECÍFICO
     async getById(id) {
         try {
