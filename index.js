@@ -27,6 +27,7 @@ server.get('/', (req, res) => {
 server.get('/productos', async (req, res) => {
     const lista = await productosContenedor.getAll();
     res.render('pages/productos', {
+        message: 'enviado',
         productos: lista
     });
 });

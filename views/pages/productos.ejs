@@ -2,9 +2,8 @@
 <body>
     <h1>Lista de Productos</h1>
     <h4>Envíe un nuevo producto a la BD</h4>
-    <% const listaProds = productos.data; %>
-    <% listaProds.forEach((producto) => { %>
-        <%- include('../partials/productDetail', {producto: producto}) %>
-    <% }) %>
+    <% for(let i = 0; i < productos.length; i++) {
+        <li><%= productos[i].name %></li>
+    <% } %>
 </body>
 </html>
