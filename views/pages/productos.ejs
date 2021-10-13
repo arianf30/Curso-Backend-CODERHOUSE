@@ -1,0 +1,10 @@
+<%- include('../partials/header', {titulo: 'Inicio'}) %>
+<body>
+    <h1>Lista de Productos</h1>
+    <h4>Envíe un nuevo producto a la BD</h4>
+    <% const listaProds = productos.data; %>
+    <% listaProds.forEach((producto) => { %>
+        <%- include('../partials/productDetail', {producto: producto}) %>
+    <% }) %>
+</body>
+</html>

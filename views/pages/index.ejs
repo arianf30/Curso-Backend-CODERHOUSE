@@ -1,0 +1,12 @@
+<%- include('../partials/header', {titulo: 'Inicio'}) %>
+<body>
+    <h1 class="text-primary"><%= titulo %></h1>
+    <h4>Envíe un nuevo producto a la BD</h4>
+    <form action="/api/productos/" method="POST">
+        <input type="text" name="name" placeholder="Nombre" /><br /><br />
+        <input type="number" name="price" placeholder="Precio" /><br /><br />
+        <input type="text" name="thumbnail" placeholder="Imágen URL" /><br /><br />
+        <input type="submit" value="Enviar" />
+    </form>
+</body>
+</html>
