@@ -1,12 +1,35 @@
-<%- include('../partials/header', {titulo: 'Inicio'}) %>
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head', {titulo: 'Inicio'}) %>
+<style>
+    .form-group{
+        margin-bottom: 1rem;
+    }
+</style>
 <body>
-    <h1 class="text-primary"><%= titulo %></h1>
-    <h4>Envíe un nuevo producto a la BD</h4>
-    <form action="/api/productos/" method="POST">
-        <input type="text" name="name" placeholder="Nombre" /><br /><br />
-        <input type="number" name="price" placeholder="Precio" /><br /><br />
-        <input type="text" name="thumbnail" placeholder="Imágen URL" /><br /><br />
-        <input type="submit" value="Enviar" />
-    </form>
+    <header>
+        <%- include('../partials/header') %>
+    </header>
+    <div class="container-fluid">
+        <h1 class="text-primary"><%= titulo %></h1>
+        <h4>Envíe un nuevo producto a la BD</h4>
+    </div>
+    <div class="container-fluid" style="width: 400px; float: left;">
+        <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Name</label>
+              <input type="text" name="name" class="form-control" placeholder="Ingresá tu nombre">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Precio</label>
+                <input type="number" name="price" class="form-control" placeholder="Ingresá el precio">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Imágen URL</label>
+                <input type="text" name="thumbnail" class="form-control" placeholder="Ingresá la url de la imágen">
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
 </body>
 </html>

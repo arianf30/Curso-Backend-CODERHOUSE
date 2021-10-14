@@ -1,9 +1,30 @@
-<%- include('../partials/header', {titulo: 'Inicio'}) %>
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head', {titulo: 'Inicio'}) %>
 <body>
+    <header>
+        <%- include('../partials/header') %>
+    </header>
     <h1>Lista de Productos</h1>
     <h4>Envíe un nuevo producto a la BD</h4>
-    <% for(let i = 0; i < productos.length; i++) {
-        <li><%= productos[i].name %></li>
-    <% } %>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Imagel</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% productos.forEach( (producto) => { %>
+                <tr>
+                    <img src="<%= producto.imagen %>" class="rounded float-left" alt="...">
+                    <td></td>
+                    <td><%= producto.name %></td>
+                    <td>$<%= producto.price %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
 </body>
 </html>

@@ -21,7 +21,7 @@ server.use('/api/productos', productosRouter);
 
 server.get('/', (req, res) => {
     res.render('pages/index', {
-        titulo: 'HOLA!!'
+        titulo: 'Página de Inicio'
     });
 });
 server.get('/productos', async (req, res) => {
