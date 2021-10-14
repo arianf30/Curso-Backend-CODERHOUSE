@@ -10,5 +10,17 @@
     "price": "100000",
     "thumbnail": "https://www.apple.com/v/iphone-11/e/images/meta/og__f2jtwncwsl2e_specs.png",
     "id": 2
+  },
+  {
+    "name": "Nuevo",
+    "price": "",
+    "thumbnail": "",
+    "id": 3
+  },
+  {
+    "name": "Samsung Gear S3 Frontier",
+    "price": "98900",
+    "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_674137-MLA31113803849_062019-F.webp",
+    "id": 4
   }
 ]

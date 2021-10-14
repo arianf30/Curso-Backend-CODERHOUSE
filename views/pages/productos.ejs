@@ -5,26 +5,32 @@
     <header>
         <%- include('../partials/header') %>
     </header>
-    <h1>Lista de Productos</h1>
-    <h4>Envíe un nuevo producto a la BD</h4>
-    <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">Imagel</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Precio</th>
-          </tr>
-        </thead>
-        <tbody>
-            <% productos.forEach( (producto) => { %>
-                <tr>
-                    <img src="<%= producto.imagen %>" class="rounded float-left" alt="...">
-                    <td></td>
-                    <td><%= producto.name %></td>
-                    <td>$<%= producto.price %></td>
-                </tr>
-            <% }); %>
-        </tbody>
-    </table>
+    <div class="container-fluid" style="margin-top: 1.5rem;">
+        <h1 class="text-primary">Lista de Productos</h1>
+    </div>
+    <div class="container-fluir" style="width: 800px;">
+        <% if(productos.length > 0){ %>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Imagel</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Precio</th>
+            </tr>
+            </thead>
+            <tbody>
+                <% productos.forEach( (producto) => { %>
+                    <tr>
+                        <td><img src="<%= producto.thumbnail %>" class="img-thumbnail" style="width: 100px; height: auto;" alt="<%= producto.name %>"></td>
+                        <td><%= producto.name %></td>
+                        <td>$<%= producto.price %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+        <% } else { %>
+            <h4>No hay productos disponibles.</h4>
+        <% } %>
+    </div>
 </body>
 </html>
