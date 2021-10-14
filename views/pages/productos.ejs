@@ -9,7 +9,7 @@
         <h1 class="text-primary">Lista de Productos</h1>
     </div>
     <div class="container-fluir" style="width: 800px;">
-        <% if(productos.length > 0){ %>
+        <% if(typeof productos === 'object' && productos.length > 0){ %>
         <table class="table table-striped">
             <thead>
             <tr>
@@ -21,7 +21,13 @@
             <tbody>
                 <% productos.forEach( (producto) => { %>
                     <tr>
-                        <td><img src="<%= producto.thumbnail %>" class="img-thumbnail" style="width: 100px; height: auto;" alt="<%= producto.name %>"></td>
+                        <td>
+                            <% if(producto.thumbnail !== ''){ %>
+                                <img src="<%= producto.thumbnail %>" class="img-thumbnail" style="width: 100px; height: auto;" alt="<%= producto.name %>">
+                            <% } else { %>
+                                <img src="https://peugeot.navigation.com/static/WFS/Shop-Site/-/Shop/en_US/Product%20Not%20Found.png" class="img-thumbnail" style="width: 100px; height: auto;" alt="<%= producto.name %>">
+                            <% } %>
+                        </td>
                         <td><%= producto.name %></td>
                         <td>$<%= producto.price %></td>
                     </tr>
