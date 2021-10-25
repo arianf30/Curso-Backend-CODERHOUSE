@@ -22,5 +22,11 @@
     "price": "98900",
     "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_674137-MLA31113803849_062019-F.webp",
     "id": 4
+  },
+  {
+    "name": "Nuevo Producto",
+    "price": "",
+    "thumbnail": "",
+    "id": 5
   }
 ]

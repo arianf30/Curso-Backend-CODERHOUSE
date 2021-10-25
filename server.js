@@ -9,7 +9,9 @@ const io = new SocketServer(httpServer);
 
 // Clase de Mensajes
 const { getMessages, saveMessage } = require('./models/messages/messages');
-const { getProducts, saveProduct } = require('./models/products/products');
+const Contenedor = require('./Contenedor');
+const productosContenedor = new Contenedor('./data/productos.json');
+/* const { getProducts, saveProduct } = require('./models/products/products'); */
 
 // Usar plantillas Ejs
 app.set('view engine', 'ejs');
@@ -29,25 +31,25 @@ app.get('/', (req, res) => {
 });
 
 // Enciendo el Socket
-io.on('connection', (socket) => {
+io.on('connection', async (socket) => {
     console.log('Nuevo usuario conectado');
 
     // Traer productos y mensajes
-    const products = getProducts();
+    const products = await productosContenedor.getAll();
     const messages = getMessages();
     socket.emit('products', products);
     socket.emit('messages', messages);
 
     // Nuevo producto
-    socket.on('new-product', (product) => {
-        saveProduct(product);
+    socket.on('new-product', async (product) => {
+        await productosContenedor.save(product);
 
-        const products = getProducts();
+        const products = await productosContenedor.getAll();
         io.sockets.emit('products', products);
     })
 
     // Nuevo mensaje
-    socket.on('new-message', (message) => {
+    socket.on('new-message', async (message) => {
         saveMessage(message);
 
         const messages = getMessages();
