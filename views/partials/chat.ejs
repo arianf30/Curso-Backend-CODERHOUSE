@@ -1,0 +1,33 @@
+<div class="container-fluid" style="margin-top: 1.5rem;">
+    <h1 class="text-primary">Chat</h1>
+</div>
+
+<div class="container-fluid" style="margin-top: 1.5rem; margin-bottom: 4rem;">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header">
+                  Mensajes
+                </div>
+                <div id="cuerpo-chat" class="card-body" style="height: 200px !important; overflow-y: scroll !important;">
+                    <div id="messages"></div>
+                    <span id="final"></span>
+                </div>
+              </div>
+        </div>
+        <div class="col-sm-6">
+            <h5 class="text-primary">Envíe un nuevo mensaje al Chat</h5>
+            <form id="form-new-message">
+                <div class="form-group">
+                <label for="exampleInputEmail1">Nombre</label>
+                <input type="text" id="username-chat" class="form-control" placeholder="Ingresá tu nombre">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Mensaje</label>
+                    <input type="text" id="text-chat" class="form-control" placeholder="Ingresá el mensaje">
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </div>
+    </div>
+</div>

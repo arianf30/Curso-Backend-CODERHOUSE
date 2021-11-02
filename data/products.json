@@ -24,9 +24,19 @@
     "id": 4
   },
   {
-    "name": "Nuevo Producto",
-    "price": "",
+    "name": "iPhone X 64 GB gris espacial",
+    "price": "299999",
     "thumbnail": "",
     "id": 5
+  },
+  {
+    "name": "Nuev",
+    "description": "Desc1",
+    "price": "100",
+    "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_674137-MLA31113803849_062019-F.webp",
+    "code": "12345",
+    "stock": "5",
+    "id": 6,
+    "timestamp": "01/10/2021 20:36"
   }
 ]
