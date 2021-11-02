@@ -52,6 +52,10 @@ app.get('/', (req, res) => {
     });
 });
 
+app.use(function(req, res, next) {
+    res.status(404).send({ Error: 404, Descripcion: "Perdón pero esta página no existe. Error 404."});
+  });
+
 // Enciendo el Socket
 io.on('connection', async (socket) => {
     console.log('Nuevo usuario conectado');
@@ -124,7 +128,7 @@ io.on('connection', async (socket) => {
 })
 
 // Enciendo el app
-const PORT = 4000;
+const PORT = 8080;
 const connectedServer = httpServer.listen(PORT, () => {
     console.log(`Servidor HTTP con Websocket escuchando en el puerto ${connectedServer.address().port}`);
 });

@@ -17,7 +17,7 @@ const createCart = async (newCart) => {
 }
 
 const editCart = async (editCart) => {
-  const idEdit = await edit(editCart);
+  const idEdit = await carritosContenedor.edit(editCart);
   return idEdit;
 }
 

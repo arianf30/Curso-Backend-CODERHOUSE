@@ -16,7 +16,7 @@ cartsRouter.get('/:id/productos', async (req, res) => {
             error: 'Carrito no encontrado'
         });
     } else {
-        res.send({ products: data.products });
+        res.send({ products: prod.products });
     }
 });
 // Nuevo carrito
@@ -51,7 +51,7 @@ cartsRouter.put('/:id', isAdmin, async (req, res) => {
 cartsRouter.delete('/:id', isAdmin, async (req, res) => {
     const paramId = parseInt(req.params.id);
     const prod = await deleteCartById(paramId);
-    res.send({ data: `Carrito ${prod} eliminado correctamente.` });
+    res.send({ data: `Carrito ${paramId} eliminado correctamente.` });
 });
 
 cartsRouter.delete('/:idCart/producto/:idProd', isAdmin, async (req, res) => {
