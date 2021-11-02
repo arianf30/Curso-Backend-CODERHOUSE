@@ -1,6 +1,6 @@
 const express = require('express');
 const { getAllProducts, getProductById, createProduct, deleteProductById, editProduct } = require('../models/products');
-const { isAuth } = require('../models/auth');
+const isAdmin = require('../middlewares/auth');
 const productsRouter = express.Router();
 
 productsRouter.get('/', async (req, res) => {
@@ -22,18 +22,13 @@ productsRouter.get('/:id', async (req, res) => {
     }
 });
 
-productsRouter.post('/', async (req, res) => {
-    const isAuth = isAuth();
-    if (isAuth === 'Admin') {
-        const newProduct = req.body;
-        const idSave = await createProduct(newProduct);
-        res.send({ data: `Producto ${idSave} creado correctamente.` });
-    } else {
-        res.send({ Error: `Producto ${idSave} creado correctamente.` });
-    }
+productsRouter.post('/', isAdmin, async (req, res) => {
+    const newProduct = req.body;
+    const idSave = await createProduct(newProduct);
+    res.send({ data: `Producto ${idSave} creado correctamente.` });
 });
 
-productsRouter.put('/:id', async (req, res) => {
+productsRouter.put('/:id', isAdmin, async (req, res) => {
     const paramId = parseInt(req.params.id);
     const product = req.body;
     const productEdit = {
@@ -44,7 +39,7 @@ productsRouter.put('/:id', async (req, res) => {
     res.send({ data: `Producto ${idEdit} editado correctamente.` });
 });
 
-productsRouter.delete('/:id', async (req, res) => {
+productsRouter.delete('/:id', isAdmin, async (req, res) => {
     const paramId = parseInt(req.params.id);
     const prod = await deleteProductById(paramId);
     res.send({ data: `Producto ${prod} eliminado correctamente.` });

@@ -41,7 +41,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Use Routers
 app.use('/api/productos', productsRouter);
-app.use('/api/carritos', cartsRouter);
+app.use('/api/carrito', cartsRouter);
 
 // Definir dirección estatica
 app.use(express.static(__dirname + '/public'));
