@@ -20,18 +20,12 @@ const io = new SocketServer(httpServer, {
         }
     }
 });
-<<<<<<< HEAD
 
-// Models
-const { getMessages, saveMessage } = require('./src/models/messages');
-const { getAllProducts, createProduct, deleteProductById, getProductById } = require('./src/models/products');
-const { getCartById, createCart, deleteCartById, getAllCarts, addToCart, deleteToCart } = require('./src/models/carts');
-=======
->>>>>>> refs/remotes/backendd/desafio_7
-
-// Routers
-const productsRouter = require('./src/routers/products');
-const cartsRouter = require('./src/routers/carts');
+// Clase de Mensajes
+const { getMessages, saveMessage } = require('./models/messages/messages');
+const Contenedor = require('./Contenedor');
+const productosContenedor = new Contenedor('./data/productos.json');
+/* const { getProducts, saveProduct } = require('./models/products/products'); */
 
 // Usar plantillas Ejs
 app.set('view engine', 'ejs');
@@ -42,10 +36,6 @@ app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
-// Use Routers
-app.use('/api/productos', productsRouter);
-app.use('/api/carrito', cartsRouter);
-
 // Definir dirección estatica
 app.use(express.static(__dirname + '/public'));
 
@@ -55,69 +45,21 @@ app.get('/', (req, res) => {
     });
 });
 
-app.use(function(req, res, next) {
-    res.status(404).send({ Error: 404, Descripcion: "Perdón pero esta página no existe. Error 404."});
-  });
-
 // Enciendo el Socket
 io.on('connection', async (socket) => {
     console.log('Nuevo usuario conectado');
 
     // Traer productos y mensajes
-    const carts = await getAllCarts();
-    const products = await getAllProducts();
+    const products = await productosContenedor.getAll();
     const messages = getMessages();
-    socket.emit('cart', carts);
     socket.emit('products', products);
     socket.emit('messages', messages);
 
-    // Nuevo carrito
-    socket.on('new-cart', async (cart) => {
-        const nuevoId = await createCart(cart);
-
-        const carts = await getAllCarts();
-        io.sockets.emit('cart', carts);
-    })
-    // Borrar Carrito
-    socket.on('delete-cart', async (id) => {
-        await deleteCartById(id);
-
-        const carts = await getAllCarts();
-        io.sockets.emit('cart', carts);
-    })
-
-    // Agregar al carrito
-    socket.on('add-to-cart', async (data) => {
-        const { id, product_id } = data;
-        const product = await getProductById(product_id);
-        await addToCart(id, product);
-
-        const carts = await getAllCarts();
-        io.sockets.emit('cart', carts);
-    })
-     // Eliminar del carrito
-     socket.on('delete-to-cart', async (data) => {
-        const { id, product_id } = data;
-        const product = await getProductById(product_id);
-        await deleteToCart(id, product);
-
-        const carts = await getAllCarts();
-        io.sockets.emit('cart', carts);
-    })
-
     // Nuevo producto
     socket.on('new-product', async (product) => {
-        await createProduct(product);
+        await productosContenedor.save(product);
 
-        const products = await getAllProducts();
-        io.sockets.emit('products', products);
-    })
-
-    // Borrar producto
-    socket.on('delete-product', async (product) => {
-        await deleteProductById(product);
-
-        const products = await getAllProducts();
+        const products = await productosContenedor.getAll();
         io.sockets.emit('products', products);
     })
 
