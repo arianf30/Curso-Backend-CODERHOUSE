@@ -63,7 +63,7 @@ io.on('connection', async (socket) => {
     // Traer productos y mensajes
     const carts = await getAllCarts();
     const products = await getAllProducts();
-    const messages = getMessages();
+    const messages = await getMessages();
     socket.emit('cart', carts);
     socket.emit('products', products);
     socket.emit('messages', messages);
@@ -120,9 +120,9 @@ io.on('connection', async (socket) => {
 
     // Nuevo mensaje
     socket.on('new-message', async (message) => {
-        saveMessage(message);
+        await saveMessage(message);
 
-        const messages = getMessages();
+        const messages = await getMessages();
         io.sockets.emit('messages', messages);
     })
 })

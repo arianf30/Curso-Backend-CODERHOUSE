@@ -18,7 +18,7 @@ knexMysql.schema.createTable('products', table => {
 
 knexSqlite.schema.createTable('messages', table => {
     table.increments('id')
-    table.string('name')
+    table.string('author')
     table.string('message')
 })
     .then(() => console.log('Tabla de mensajes creada con éxito.'))

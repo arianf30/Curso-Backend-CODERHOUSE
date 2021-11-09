@@ -9,8 +9,8 @@ class Contenedor{
     // FUNCIÓN PARA GUARDAR
     async save(producto) {
         try {
-            const data = await this.conexion(this.table).insert(producto);
-            return data.id
+            const [id] = await this.conexion(this.table).insert(producto);
+            return id
         } catch ( error ) {
             console.log('error: ', error); throw error;
         } finally {

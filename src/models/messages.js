@@ -1,14 +1,15 @@
-const messages = [
-    { author: 'Juan', message: '¡Hola! ¿Qué tal?' },
-    { author: 'Pedro', message: 'Muy bien! ¿Y vos?' },
-    { author: 'Ana', message: '¡Genial!' },
-    { author: 'Arián', message: 'Saludos!' }
-]
+const Contenedor = require('../../Contenedor');
+const { sqliteOptions } = require('../../data/databases');
+const mensajesContenedor = new Contenedor(sqliteOptions, 'messages');
 
-const getMessages = () => messages;
+const getMessages = async () => {
+    const data = await mensajesContenedor.getAll();
+    return data;
+};
 
-const saveMessage = (message) => {
-    messages.push(message)
+const saveMessage = async (message) => {
+    const data = await mensajesContenedor.save(message);
+    return data.id;
 }
 
 module.exports = {
