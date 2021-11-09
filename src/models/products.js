@@ -1,5 +1,6 @@
 const Contenedor = require('../../Contenedor');
-const productosContenedor = new Contenedor('./data/products.json');
+const { mysqlOptions } = require('../../data/databases');
+const productosContenedor = new Contenedor(mysqlOptions, 'products');
 
 const getAllProducts = async () => {
   const list = await productosContenedor.getAll();
