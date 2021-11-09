@@ -20,11 +20,14 @@ const io = new SocketServer(httpServer, {
         }
     }
 });
+<<<<<<< HEAD
 
 // Models
 const { getMessages, saveMessage } = require('./src/models/messages');
 const { getAllProducts, createProduct, deleteProductById, getProductById } = require('./src/models/products');
 const { getCartById, createCart, deleteCartById, getAllCarts, addToCart, deleteToCart } = require('./src/models/carts');
+=======
+>>>>>>> refs/remotes/backendd/desafio_7
 
 // Routers
 const productsRouter = require('./src/routers/products');
@@ -128,7 +131,7 @@ io.on('connection', async (socket) => {
 })
 
 // Enciendo el app
-const PORT = 8080;
+const PORT = 4000;
 const connectedServer = httpServer.listen(PORT, () => {
     console.log(`Servidor HTTP con Websocket escuchando en el puerto ${connectedServer.address().port}`);
 });
