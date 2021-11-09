@@ -1,11 +1,25 @@
 // Constantes de servidor express
 const express = require('express');
+const cors = require('cors');
 const { Server: HttpServer } = require('http');
 const { Server: SocketServer } = require('socket.io');
 
 const app = express();
 const httpServer = new HttpServer(app);
-const io = new SocketServer(httpServer);
+const io = new SocketServer(httpServer, {
+    cors: {
+        origins: ["*"],
+        handlePreflightRequest: (req, res) => {
+            res.writeHead(200, {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "GET,POST",
+                "Access-Control-Allow-Headers": "my-custom-header",
+                "Access-Control-Allow-Credentials": true
+            });
+            res.end();
+        }
+    }
+});
 
 // Clase de Mensajes
 const { getMessages, saveMessage } = require('./models/messages/messages');
@@ -19,6 +33,7 @@ app.set('views', __dirname + '/views');
 
 // Para recibir datos en JSON desde HTTP
 app.use(express.json());
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
 // Definir dirección estatica
@@ -58,7 +73,7 @@ io.on('connection', async (socket) => {
 })
 
 // Enciendo el app
-const PORT = 8080;
+const PORT = 4000;
 const connectedServer = httpServer.listen(PORT, () => {
     console.log(`Servidor HTTP con Websocket escuchando en el puerto ${connectedServer.address().port}`);
 });
