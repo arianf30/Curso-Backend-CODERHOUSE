@@ -71,12 +71,25 @@ db.products.find(
     { price: {$gt: 3000} }, { name: 1, price: 1, _id: 0 }
 ).pretty()
 // iv)
-db.products.find(
-    {}, {price: 1, _id: 0}
-).sort({price: 1})
+db.products.find({}, { name: 1, _id: 0 }).sort({price: 1}).skip(2).limit(1)
 ```
 
-// READ
-db.products.find({
-    name: 'product 11'
-}).pretty()
+### c) Actualización sobre todos los productos, agregando stock 100
+```
+db.products.updateMany(
+    {}, { $set: {stock: 100} }
+)
+```
+### d) Stock a 0 a los productos con precio mayor a 4000
+```
+db.products.updateMany(
+    { price: {$gt:4000} },
+    { $set: {stock:0} }
+)
+```
+### e) Borrar productos con precio menor a 1000
+```
+db.products.deleteMany(
+    { price: {$lt:1000} }
+)
+```
