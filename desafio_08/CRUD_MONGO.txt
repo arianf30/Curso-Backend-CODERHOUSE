@@ -1,4 +1,0 @@
-mongo ecommerce  //  mongo      use ecommerce
-
-db.createCollection('messages')
-db.createCollection('products')
