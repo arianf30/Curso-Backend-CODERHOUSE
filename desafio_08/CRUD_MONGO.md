@@ -50,13 +50,13 @@ db.products.count()
 ```
 
 ### 5) Realizar CRUD sobre la colección de productos
-### a) Agregar un producto más en la colección de productos
+#### a) Agregar un producto más en la colección de productos
 ```
 db.products.insertOne({
     name: 'product 11', description: 'descripción 11!', code: '111', photo: '', price: 4800, stock: 11
 })
 ```
-### b) Realizar una consulta por nombre de producto específico
+#### b) Realizar una consulta por nombre de producto específico
 ```
 // i)
 db.products.find(
@@ -74,22 +74,40 @@ db.products.find(
 db.products.find({}, { name: 1, _id: 0 }).sort({price: 1}).skip(2).limit(1)
 ```
 
-### c) Actualización sobre todos los productos, agregando stock 100
+#### c) Actualización sobre todos los productos, agregando stock 100
 ```
 db.products.updateMany(
     {}, { $set: {stock: 100} }
 )
 ```
-### d) Stock a 0 a los productos con precio mayor a 4000
+#### d) Stock a 0 a los productos con precio mayor a 4000
 ```
 db.products.updateMany(
     { price: {$gt:4000} },
     { $set: {stock:0} }
 )
 ```
-### e) Borrar productos con precio menor a 1000
+#### e) Borrar productos con precio menor a 1000
 ```
 db.products.deleteMany(
     { price: {$lt:1000} }
 )
 ```
+
+### 6) Crear usuario 'pepe', clave: 'asd456' que solo pueda leer la db ecommerce. Verificar que pepe no pueda modificar información
+```
+db.createUser(
+    {
+        user: 'pepe',
+        pwd: 'asd456',
+        roles: [
+            { role: 'read', db: 'ecommerce' }
+        ]
+    }
+)
+```
+
+## Autenticación:
+``
+mongo -u pepe -p asd456 --authenticationDatabase ecommerce
+``
