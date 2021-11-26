@@ -9,7 +9,7 @@ const options = {
     },
     file: {
         productFilePath: './data/products.json',
-        cartsFilePath: './data/products.json',
+        cartFilePath: './data/products.json',
     },
     firestore: {
         type: "service_account",

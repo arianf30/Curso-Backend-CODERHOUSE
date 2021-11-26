@@ -3,7 +3,7 @@ const config = require("../../../config");
 
 class ProductDaoFirestore extends FirestoreContainer {
     constructor () {
-        super('products', config.firestore )
+        super('products', config.firestore)
     }
 }
 

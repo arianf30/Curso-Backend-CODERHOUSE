@@ -1,6 +1,6 @@
 const express = require('express');
 const isAdmin = require('../middlewares/auth');
-const { selectDao } = require('../daos')
+const { selectDao } = require('../daos');
 
 const productsRouter = express.Router();
 const productDao = new selectDao();
