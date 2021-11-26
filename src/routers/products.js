@@ -1,50 +1,50 @@
 const express = require('express');
-const { getAllProducts, getProductById, createProduct, deleteProductById, editProduct } = require('../models/products');
 const isAdmin = require('../middlewares/auth');
-const productsRouter = express.Router();
+const { selectDao } = require('../daos')
 
+const productsRouter = express.Router();
+const productDao = new selectDao();
+
+// CREATE
+productsRouter.post('/', isAdmin, async (req, res) => {
+    const newProduct = req.body;
+    const idSave = await productDao.create(newProduct);
+    res.send({ data: `Producto ${idSave} creado correctamente.` });
+});
+
+// READ
 productsRouter.get('/', async (req, res) => {
-    const data = await getAllProducts();
+    const data = await productDao.readAll();
     res.send({ data });
 });
 productsRouter.get('/:id', async (req, res) => {
-    const paramId = parseInt(req.params.id);
-    const prod = await getProductById(paramId);
+    const paramId = req.params.id;
+    const prod = await productDao.readId(paramId);
     if (prod === null) {
         res.send({
             error: 'Producto no encontrado'
         });
     } else {
         res.send({
-            messagge: 'success',
             data: prod
         });
     }
 });
 
-productsRouter.post('/', isAdmin, async (req, res) => {
-    const newProduct = req.body;
-    const idSave = await createProduct(newProduct);
-    res.send({ data: `Producto ${idSave} creado correctamente.` });
-});
-
+// UPDATE
 productsRouter.put('/:id', isAdmin, async (req, res) => {
-    const paramId = parseInt(req.params.id);
+    const paramId = req.params.id;
     const product = req.body;
-    const productEdit = {
-        ...product,
-        id: paramId
-    }
-    const idEdit = await editProduct(productEdit);
+    const idEdit = await productDao.update(paramId, product);
     res.send({ data: `Producto ${idEdit} editado correctamente.` });
 });
 
+// DELETE
 productsRouter.delete('/:id', isAdmin, async (req, res) => {
-    const paramId = parseInt(req.params.id);
-    const prod = await deleteProductById(paramId);
+    const paramId = req.params.id;
+    const prod = await productDao.deleteId(paramId);
     res.send({ data: `Producto ${prod} eliminado correctamente.` });
 });
-
 
 
 module.exports = productsRouter;
