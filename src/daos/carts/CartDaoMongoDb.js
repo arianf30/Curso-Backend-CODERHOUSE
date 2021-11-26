@@ -2,9 +2,9 @@ const MongoContainer = require("../../containers/MongoContainer");
 const { Schema } = require("mongoose");
 const config = require("../../../config");
 
-class ProductDaoMongoDb extends MongoContainer {
+class CartDaoMongoDb extends MongoContainer {
     constructor () {
-        super('products', new Schema({
+        super('carts', new Schema({
             name: { type: String, required: true },
             description: { type: String, required: true },
             code: { type: Number, required: true },
@@ -15,4 +15,4 @@ class ProductDaoMongoDb extends MongoContainer {
     }
 }
 
-module.exports = ProductDaoMongoDb;
+module.exports = CartDaoMongoDb;

@@ -1,10 +1,10 @@
 const FileContainer = require("../../containers/FileContainer");
 const config = require("../../../config");
 
-class ProductDaoFile extends FileContainer {
+class CartDaoFile extends FileContainer {
     constructor () {
-        super(config.file.productFilePath)
+        super(config.file.cartFilePath)
     }
 }
 
-module.exports = ProductDaoFile;
+module.exports = CartDaoFile;
