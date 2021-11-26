@@ -30,35 +30,31 @@ class MongoContainer {
     // READ
     async readId(id) {
         try {
-            const document = await this.collection.find({ _id: id });
-            console.log('Read ID: ', { document });
-            if (document.length === 0) {
-                return null;
-            } else {
-                return document;
-            }
+            const document = await this.collection.doc(id).get();
+            return document.data();
         } catch (error) {
             console.error('Error: ', error);
         }
     }
-    readAll() {
-        const docRef = this.collection.doc();
-
-        docRef.get().then((doc) => {
-            if (doc.exists) {
-                console.log("Document data:", doc.data());
-                return doc.data();
-            } else {
-                return "No such document!";
-            }
-        }).catch((error) => {
-            return `Error getting document: ${error}`;
-        });
+    async readAll() {
+        try {
+            const documents = await this.collection.get();
+            let data = [];
+            documents.forEach(doc => {
+                data.push({
+                    id: doc.id, ...doc.data()
+                });
+            })
+            console.log(data);
+            return data;
+        } catch (error) {
+            console.error('Error: ', error);
+        }
     }
 
     // UPDATE
     async update(id, element) {
-        const response = await this.collection.doc(id).update({ element });
+        const response = await this.collection.doc(id).update(element);
         if (!response) {
             console.log(`Elemento con el ID ${id} no fue encontrado`);
             return null;
