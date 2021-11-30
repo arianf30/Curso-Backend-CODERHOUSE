@@ -24,9 +24,27 @@
     "id": 4
   },
   {
-    "name": "Nuevo Producto",
-    "price": "",
+    "name": "iPhone X 64 GB gris espacial",
+    "price": "299999",
     "thumbnail": "",
     "id": 5
+  },
+  {
+    "name": "Nuevo",
+    "price": "",
+    "thumbnail": "",
+    "id": 6
+  },
+  {
+    "name": "Otro",
+    "price": "",
+    "thumbnail": "",
+    "id": 7
+  },
+  {
+    "name": "Producto nuevo",
+    "price": "",
+    "thumbnail": "",
+    "id": 8
   }
 ]

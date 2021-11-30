@@ -1,10 +1,21 @@
 const socket = io.connect();
 
+const schemaAuthor = new normalizr.schema.Entity('author', {}, {idAttribute: 'id'});
+
+const schemaMessage = new normalizr.schema.Entity('message', {
+    author: schemaAuthor
+});
+
+const schemaMessages = new normalizr.schema.Entity('messages', {
+    messages: [schemaMessage]
+});
+
 const renderMessages = (data) => {
+    console.log(data);
     const html = data.map((elem, index) => {
         return (`<div>
-        <strong>${elem.author}</strong>
-        <em>${elem.message}</em>
+        <strong>${elem.author.nombre}</strong>
+        <em>${elem.text}</em>
         </div>`)
     }).join(" ");
     document.getElementById('messages').innerHTML = html;
@@ -54,5 +65,8 @@ formMessage.addEventListener('submit', addMessage);
 const formProduct = document.getElementById('form-new-product');
 formProduct.addEventListener('submit', addProduct);
 
-socket.on('messages', (data) => renderMessages(data));
+socket.on('messages', (data) => {
+    const dataDenormalized = normalizr.denormalize(data.result, schemaMessages, data.entities);
+    renderMessages(dataDenormalized.messages);
+});
 socket.on('products', (data) => renderProducts(data));

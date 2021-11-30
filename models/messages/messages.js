@@ -1,14 +1,14 @@
-const messages = [
-    { author: 'Juan', message: '¡Hola! ¿Qué tal?' },
-    { author: 'Pedro', message: 'Muy bien! ¿Y vos?' },
-    { author: 'Ana', message: '¡Genial!' },
-    { author: 'Arián', message: 'Saludos!' }
-]
+const Contenedor = require('../../Contenedor');
+const { normalizeMessages } = require('../../src/normalizar');
+const mensajesContenedor = new Contenedor('./data/mensajes.json');
 
-const getMessages = () => messages;
+const getMessages = async () => {
+    const messages = await mensajesContenedor.getAll();
+    return normalizeMessages({id: 'messages', messages});
+};
 
-const saveMessage = (message) => {
-    messages.push(message)
+const saveMessage = async (message) => {
+    await mensajesContenedor.save(message)
 }
 
 module.exports = {
