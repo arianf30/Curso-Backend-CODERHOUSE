@@ -10,8 +10,13 @@
     <header>
         <%- include('../partials/header') %>
     </header>
+    <div class="container-fluid" style="margin-top: 1.5rem; vertical-align: middle;">
+        <h1 class="text-primary" style="display: inline; vertical-align: middle;">Bienvenido <%= nombre %></h1>
+        &nbsp;&nbsp;&nbsp;
+        <a href="/logout" class="btn btn-primary" style="vertical-align:middle">Cerrar sesión</a>
+    </div>
     <div class="container-fluid" style="margin-top: 1.5rem;">
-        <h1 class="text-primary"><!-- <%= titulo %> -->Productos</h1>
+        <h1 class="text-primary">Productos</h1>
     </div>
     <div class="container-fluid">
         <div class="row">

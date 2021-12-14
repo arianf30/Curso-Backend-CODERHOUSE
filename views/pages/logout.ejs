@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head', {titulo: 'Inicio'}) %>
+<style>
+    .form-group{
+        margin-bottom: 1rem;
+    }
+</style>
+<body>
+    <header>
+        <%- include('../partials/header') %>
+    </header>
+    <div class="container-fluid" style="margin-top: 1.5rem;">
+        <h1 class="text-primary">Hasta luego <b><%=nombre%></b>, cerrando sesión...</h1>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            location.href = '/'
+        }, 2000)
+    </script>
+</body>
+</html>

@@ -4,6 +4,7 @@ const faker = require('faker');
 const cors = require('cors');
 const { Server: HttpServer } = require('http');
 const { Server: SocketServer } = require('socket.io');
+const session = require('express-session')
 
 const app = express();
 const httpServer = new HttpServer(app);
@@ -25,6 +26,7 @@ const io = new SocketServer(httpServer, {
 // Clase de Mensajes
 const { getMessages, saveMessage } = require('./models/messages/messages');
 const Contenedor = require('./Contenedor');
+const { webAuth } = require('./auth');
 const productosContenedor = new Contenedor('./data/productos.json');
 /* const { getProducts, saveProduct } = require('./models/products/products'); */
 
@@ -41,9 +43,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', (req, res) => {
-    res.render('pages/index', {
-        titulo: 'Ingrese un producto'
-    });
+    res.redirect('/home')
 });
 
 app.get('/api/products-test', (req, res) => {
@@ -81,6 +81,56 @@ io.on('connection', async (socket) => {
         const messages = await getMessages();
         io.sockets.emit('messages', messages);
     })
+})
+
+// DESAFIO 10
+app.use(session({
+    secret: 'shhhhhhhhhhhhhhhhhhhhh',
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 60000 // Session de 1 minuto == 60000 milisegundos
+    }
+}))
+
+app.get('/home', webAuth, (req, res) => {
+    res.render('pages/index', {
+        nombre: req.session.nombre
+    });
+})
+
+app.get('/login', (req, res) => {
+    const nombre = req.session?.nombre
+    if (nombre) {
+        res.redirect('/')
+    } else {
+        res.render('pages/login', {
+            titulo: "Login"
+        });
+    }
+})
+
+app.get('/logout', (req, res) => {
+    const nombre = req.session?.nombre
+    if (nombre) {
+        req.session.destroy(err => {
+            if (!err) {
+                res.render('pages/logout', {
+                    nombre: nombre
+                });
+            } else {
+                res.redirect('/')
+            }
+        })
+    } else {
+        res.redirect('/')
+    }
+})
+
+app.post('/login', (req, res) => {
+    req.session.nombre = req.body.nombre
+    // si no queres usar motores de plantilla podes devolver el nombre en la url como query params
+    res.redirect('/home')
 })
 
 // Enciendo el app
