@@ -11,73 +11,9 @@
         <%- include('../partials/header') %>
     </header>
     <div class="container-fluid" style="margin-top: 1.5rem; vertical-align: middle;">
-        <h1 class="text-primary" style="display: inline; vertical-align: middle;">Bienvenido <%= nombre %></h1>
+        <h1 class="text-primary" style="display: inline; vertical-align: middle;">Bienvenido</h1>
         &nbsp;&nbsp;&nbsp;
         <a href="/logout" class="btn btn-primary" style="vertical-align:middle">Cerrar sesión</a>
-    </div>
-    <div class="container-fluid" style="margin-top: 1.5rem;">
-        <h1 class="text-primary">Productos</h1>
-    </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-6">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">Imagen</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Precio</th>
-                        </tr>
-                    </thead>
-                    <tbody id="products">
-                    </tbody>
-                </table>
-            </div>
-            <div class="col-sm-6">
-                <h5 class="text-primary">Envíe un nuevo producto a la BD</h5>
-                <form id="form-new-product">
-                    <div class="form-group">
-                    <label for="exampleInputEmail1">Producto</label>
-                    <input type="text" id="name-product" class="form-control" placeholder="Ingresá el nombre del producto">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Precio</label>
-                        <input type="number" id="price-product" class="form-control" placeholder="Ingresá el precio">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Imágen URL</label>
-                        <input type="text" id="thumbnail-product" class="form-control" placeholder="Ingresá la url de la imágen">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Enviar</button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <div class="container-fluid" style="margin-top: 1.5rem;">
-        <h1 class="text-primary">Chat</h1>
-    </div>
-
-    <div class="container-fluid" style="margin-top: 1.5rem;">
-        <div class="row">
-            <div class="col-sm-6">
-                <div id="messages"></div>
-            </div>
-            <div class="col-sm-6">
-                <h5 class="text-primary">Envíe un nuevo mensaje al Chat</h5>
-                <form id="form-new-message">
-                    <div class="form-group">
-                    <label for="exampleInputEmail1">Nombre</label>
-                    <input type="text" id="username-chat" class="form-control" placeholder="Ingresá tu nombre">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Mensaje</label>
-                        <input type="text" id="text-chat" class="form-control" placeholder="Ingresá el mensaje">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Enviar</button>
-                </form>
-            </div>
-        </div>
     </div>
 </body>
 </html>
