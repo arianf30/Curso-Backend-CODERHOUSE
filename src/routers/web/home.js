@@ -17,10 +17,6 @@ webRouter.get('/home', webAuth, (req, res) => {
     })
 })
 
-webRouter.get('/signup', (req, res) => {
-    res.render(path.join(process.cwd(), '/views/pages/signup.ejs'))
-})
-
 webRouter.get('/productos-vista-test', (req, res) => {
     res.sendFile(path.join(process.cwd(), '/views/productos-vista-test.html'))
 })

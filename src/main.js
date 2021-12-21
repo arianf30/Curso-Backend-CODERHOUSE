@@ -24,7 +24,7 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 app.use(session({
-    store: MongoStore.create({ mongoUrl: config.mongoLocal.cnxStr }),
+    store: MongoStore.create({ mongoUrl: "mongodb://localhost:27017/coderhouse" }),
     secret: 'shhhhhhhhhhhhhhhhhhhhh',
     resave: false,
     saveUninitialized: false,
@@ -39,14 +39,13 @@ app.use(passport.session());
 
 //--------------------------------------------
 // rutas del servidor web
-
 app.use(webRouter)
 app.use(homeWebRouter)
 
 
 //--------------------------------------------
 // inicio el servidor
-mongoose.connect(config.mongoLocal.cnxStr, { useNewUrlParser: true, useUnifiedTopology: true }, err => {
+mongoose.connect("mongodb://localhost:27017/coderhouse", { useNewUrlParser: true, useUnifiedTopology: true }, err => {
     if(err) {
       console.error('Erro connection mongo');
     }

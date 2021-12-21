@@ -40,6 +40,14 @@ authWebRouter.get('/login', (req, res) => {
     }
 })
 
+authWebRouter.get('/signup', (req, res) => {
+    if (req.isAuthenticated()) {
+        res.redirect('/')
+    } else {
+        res.render(path.join(process.cwd(), '/views/pages/signup.ejs'))
+    }
+})
+
 authWebRouter.get('/auth/facebook', passport.authenticate('facebook'));
 authWebRouter.get('/auth/facebook/callback', passport.authenticate('facebook',
     {
@@ -49,11 +57,11 @@ authWebRouter.get('/auth/facebook/callback', passport.authenticate('facebook',
 ));
 
 authWebRouter.get('/faillogin', (req, res) => {
-    res.render('/views/pages/login-error.ejs');
+    res.render(path.join(process.cwd(), '/views/pages/login-error.ejs'))
 })
 
 authWebRouter.get('/failsignup', (req, res) => {
-    res.render('/views/pages/signup-error.ejs');
+    res.render(path.join(process.cwd(), '/views/pages/signup-error.ejs'))
 })
 
 authWebRouter.get('/logout', (req, res) => {
@@ -63,7 +71,7 @@ authWebRouter.get('/logout', (req, res) => {
 })
 
 passport.use('login', new LocalStrategy((username, password, done) => {
-    User.findOne({ email: username }, (error, user) => {
+    User.findOne({ username: username }, (error, user) => {
         console.log({user});
         if (error)
             return done(error);
@@ -83,36 +91,34 @@ passport.use('login', new LocalStrategy((username, password, done) => {
     })
 }))
 
-passport.use('singup', new LocalStrategy(
-    { passReqToCallback: true },
-    (req, username, password, done) => {
-    User.findOne({ email: username }, (error, user) => {
-        if (err) {
-            console.log('Error in SignUp: ' + err);
-            return done(err);
-        }
-        
-        if (user) {
+passport.use('signup', new LocalStrategy({ passReqToCallback: true }, (req, username, password, done) => {
+    User.findOne({ username: username }, (error, user) => {
+        console.log({user});
+        if (error)
+            return done(error);
+    
+        if (!user) {
+            const newUser = {
+                username: username,
+                password: createHash(password),
+                email: req.body.email,
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+            };
+            User.create(newUser, (error, userCreated) => {
+                if (error) {
+                    console.log('Error in Saving user: ' + err);
+                    return done(err);
+                }
+                console.log(user)
+                console.log('User Registration succesful');
+                return done(null, userCreated);
+            });
+        } else {
             console.log('User already exists');
             return done(null, false)
         }
         
-        const newUser = {
-            username: username,
-            password: createHash(password),
-            email: req.body.email,
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-        };
-        User.create(newUser, (error, userCreated) => {
-            if (error) {
-                console.log('Error in Saving user: ' + err);
-                return done(err);
-            }
-            console.log(user)
-            console.log('User Registration succesful');
-            return done(null, userCreated);
-        });
     })
 }))
 
@@ -129,6 +135,7 @@ authWebRouter.post(
     passport.authenticate('signup', { failureRedirect: '/failsignup'}),
     (req, res) => {
         res.redirect('/')
+        console.log(req)
     }
 );
 
