@@ -9,6 +9,7 @@ import MongoStore from 'connect-mongo';
 import passport from 'passport'
 
 import config from './config.js'
+import randomsApiRouter from './routers/api/randoms.js';
 
 //--------------------------------------------
 // instancio servidor, socket y api
@@ -41,7 +42,7 @@ app.use(passport.session());
 // rutas del servidor web
 app.use(webRouter)
 app.use(homeWebRouter)
-
+app.use(randomsApiRouter)
 
 //--------------------------------------------
 // inicio el servidor
