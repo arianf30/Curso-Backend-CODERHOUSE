@@ -1,5 +1,7 @@
 import { Router } from 'express'
-import getRandomInt from '../../utils/getRandomInt.js';
+import getRandomInt from '../../utils/getRandomInt.js'
+import { fork } from 'child_process'
+
 
 const DEFAULT_CANT = 100000000
 
@@ -11,23 +13,19 @@ randomsApiRouter.get('/health', (req, res) => {
 
 randomsApiRouter.get('/api/randoms', (req, res) => {
     const { cant = DEFAULT_CANT } = req.query;
-    const numbers = [];
+    // const numbers = [];
 
-    for (let index = 0; index < cant; index++) {
-        const random = getRandomInt(1, 1001);
-        numbers.push(random)
-    }
-
-    const result = {};
-    numbers.forEach((number) => {
-        if (result[number]) {
-            result[number]++;
+    const countRandomNumbers = fork('./src/utils/countRandomNumbers.js');
+    
+    countRandomNumbers.on('message', msg => {
+        if (msg === 'listo') {
+            countRandomNumbers.send(cant);
         } else {
-            result[number] = 1
+            res.send(msg);
         }
     })
 
-    res.json({ result })
+    // res.json({ result })
 })
 
 export default randomsApiRouter
