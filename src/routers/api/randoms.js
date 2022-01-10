@@ -1,5 +1,4 @@
 import { Router } from 'express'
-import getRandomInt from '../../utils/getRandomInt.js'
 import { fork } from 'child_process'
 
 
@@ -24,8 +23,6 @@ randomsApiRouter.get('/api/randoms', (req, res) => {
             res.send(msg);
         }
     })
-
-    // res.json({ result })
 })
 
 export default randomsApiRouter

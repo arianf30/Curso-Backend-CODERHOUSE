@@ -44,6 +44,18 @@ app.use(webRouter)
 app.use(homeWebRouter)
 app.use(randomsApiRouter)
 
+app.get('/info', (req, res) => {
+    const info = {
+        'Directorio actual de trabajo': process.cwd(),
+        'Id del proceso': process.pid,
+        'Versión de Node': process.version,
+        'Título del proceso': process.title,
+        'Sistema operativo': process.platform,
+        'Uso de memoria': process.memoryUsage()
+    }
+    res.json({ info })
+})
+
 //--------------------------------------------
 // inicio el servidor
 mongoose.connect("mongodb://localhost:27017/coderhouse", { useNewUrlParser: true, useUnifiedTopology: true }, err => {
