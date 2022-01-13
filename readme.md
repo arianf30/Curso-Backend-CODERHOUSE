@@ -1,3 +1,5 @@
+## El desafío 13 fue trabajado en la carpeta ejemploCluster
+
 ## 1. Start with Fork & Cluster
 
 ```
