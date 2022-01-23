@@ -78,9 +78,9 @@ Req/Bytes counts sampled once per second.
 ## REPORTE FLAMEGRAPH
 
 ### Resultado CON console.log
-![](/graphs/flamegraph_con_log.png)
+![](./graphs/flamegraph_con_log.png)
 
 ### Resultado SIN console.log
-![](/graphs/flamegraph_sin_log.png)
+![](./graphs/flamegraph_sin_log.png)
 
 
