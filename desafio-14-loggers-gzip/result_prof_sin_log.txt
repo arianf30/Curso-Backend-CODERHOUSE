@@ -1,0 +1,671 @@
+Statistical profiling result from sin_log-v8.log, (2622 ticks, 10 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+     47    1.8%          /usr/lib/system/libsystem_pthread.dylib
+     33    1.3%          /usr/lib/system/libsystem_malloc.dylib
+     26    1.0%          /usr/lib/system/libsystem_c.dylib
+     18    0.7%          /usr/lib/system/libsystem_platform.dylib
+     16    0.6%          /usr/lib/system/libsystem_kernel.dylib
+     16    0.6%          /usr/lib/libc++.1.dylib
+      1    0.0%          /usr/lib/system/libdyld.dylib
+      1    0.0%          /usr/lib/libobjc.A.dylib
+      1    0.0%          /usr/lib/libc++abi.dylib
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+      5    0.2%    0.2%  LazyCompile: *nextTick node:internal/process/task_queues:104:18
+      4    0.2%    0.2%  RegExp: ^[!#$%&'*+.^_`|~0-9A-Za-z-]+$
+      2    0.1%    0.1%  RegExp: ;\s*charset\s*=
+      2    0.1%    0.1%  RegExp: ; *([!#$%&'*+.^_`|~0-9A-Za-z-]+) *= *("(?:[\u000b\u0020\u0021\u0023-\u005b\u005d-\u007e\u0080-\u00ff]|\\[\u000b\u0020-\u00ff])*"|[!#$%&'*+.^_`|~0-9A-Za-z-]+) *
+      2    0.1%    0.1%  LazyCompile: *resolve node:path:1091:10
+      2    0.1%    0.1%  LazyCompile: *processTicksAndRejections node:internal/process/task_queues:68:35
+      2    0.1%    0.1%  LazyCompile: *parse /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/vary/index.js:96:16
+      2    0.1%    0.1%  LazyCompile: *Module._nodeModulePaths node:internal/modules/cjs/loader:623:37
+      1    0.0%    0.0%  RegExp: ^text\/|^application\/(javascript|json)
+      1    0.0%    0.0%  RegExp: ^[\^_`a-zA-Z\-0-9!#$%&'*+.|~]+$
+      1    0.0%    0.0%  RegExp: ^[!#$%&'*+\-.^_`|~0-9A-Za-z]+$
+      1    0.0%    0.0%  RegExp: ^.*[\.\/\\]
+      1    0.0%    0.0%  RegExp: [^\t\x20-\x7e\x80-\xff]
+      1    0.0%    0.0%  LazyCompile: *stringifyReplacerFn /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/safe-stable-stringify/stable.js:386:30
+      1    0.0%    0.0%  LazyCompile: *next /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/index.js:176:16
+      1    0.0%    0.0%  LazyCompile: *endReadable node:internal/streams/readable:1314:21
+      1    0.0%    0.0%  LazyCompile: *emit node:events:343:44
+      1    0.0%    0.0%  LazyCompile: *_write node:internal/streams/writable:283:16
+
+ [C++]:
+   ticks  total  nonlib   name
+   1274   48.6%   51.7%  t __ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1IDnEEPKc
+    598   22.8%   24.3%  T __ZN4node10StreamBase8JSMethodIXadL_ZNS0_6WritevERKN2v820FunctionCallbackInfoINS2_5ValueEEEEEEEvS7_
+    123    4.7%    5.0%  T __ZN4node10contextify17ContextifyContext15CompileFunctionERKN2v820FunctionCallbackInfoINS2_5ValueEEE
+    111    4.2%    4.5%  T __ZN4node13native_module15NativeModuleEnv15CompileFunctionERKN2v820FunctionCallbackInfoINS2_5ValueEEE
+     51    1.9%    2.1%  T __ZN4node10StreamBase8JSMethodIXadL_ZNS0_11WriteStringILNS_8encodingE1EEEiRKN2v820FunctionCallbackInfoINS4_5ValueEEEEEEEvS9_
+     34    1.3%    1.4%  T __kernelrpc_mach_port_set_attributes
+     30    1.1%    1.2%  T _mach_port_allocate
+     25    1.0%    1.0%  T _mig_strncpy_zerofill
+     25    1.0%    1.0%  T _host_get_clock_service
+     17    0.6%    0.7%  T _guarded_open_np
+     12    0.5%    0.5%  t __ZN4node2fsL18InternalModuleStatERKN2v820FunctionCallbackInfoINS1_5ValueEEE
+     11    0.4%    0.4%  t __ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m
+      6    0.2%    0.2%  t __ZN4node2fsL4OpenERKN2v820FunctionCallbackInfoINS1_5ValueEEE
+      6    0.2%    0.2%  T __ZNK6icu_6916SimpleDateFormat9subFormatERNS_13UnicodeStringEDsi15UDisplayContextiDsRNS_20FieldPositionHandlerERNS_8CalendarER10UErrorCode
+      5    0.2%    0.2%  t __ZN4node6Buffer12_GLOBAL__N_111StringWriteILNS_8encodingE1EEEvRKN2v820FunctionCallbackInfoINS4_5ValueEEE
+      5    0.2%    0.2%  T _mach_make_memory_entry_64
+      4    0.2%    0.2%  t __ZN4node2fsL5LStatERKN2v820FunctionCallbackInfoINS1_5ValueEEE
+      3    0.1%    0.1%  t _uv__io_poll
+      3    0.1%    0.1%  t __ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_
+      3    0.1%    0.1%  T __ZN6icu_698CalendarD2Ev
+      3    0.1%    0.1%  T __ZN4node23IsConstructCallCallbackERKN2v820FunctionCallbackInfoINS0_5ValueEEE
+      2    0.1%    0.1%  t __ZN4node2fsL22InternalModuleReadJSONERKN2v820FunctionCallbackInfoINS1_5ValueEEE
+      2    0.1%    0.1%  t __ZN4node12_GLOBAL__N_111GetLibuvNowERKN2v820FunctionCallbackInfoINS1_5ValueEEE
+      2    0.1%    0.1%  t __ZL16init_resb_resultPK12ResourceDatajPKciP18UResourceDataEntryPK15UResourceBundleiPS6_P10UErrorCode
+      2    0.1%    0.1%  t __ZL10_findIndexPKPKcS0_
+      2    0.1%    0.1%  T __ZNK6icu_6910DateFormat10getContextE19UDisplayContextTypeR10UErrorCode
+      2    0.1%    0.1%  T __ZN6icu_698TimeZoneC2ERKS0_
+      2    0.1%    0.1%  T __ZN6icu_6913UnicodeString8doAppendEPKDsii
+      2    0.1%    0.1%  T __ZN4node9AsyncWrap9EmitAfterEPNS_11EnvironmentEd
+      2    0.1%    0.1%  T __ZN4node9AsyncWrap19EmitTraceEventAfterENS0_12ProviderTypeEd
+      2    0.1%    0.1%  T __ZN4node7binding18GetInternalBindingERKN2v820FunctionCallbackInfoINS1_5ValueEEE
+      1    0.0%    0.0%  t __ZNSt3__16vectorIPvNS_9allocatorIS1_EEE6resizeEm
+      1    0.0%    0.0%  t __ZNSt3__112__hash_tableIiNS_4hashIiEENS_8equal_toIiEENS_9allocatorIiEEE4findIiEENS_15__hash_iteratorIPNS_11__hash_nodeIiPvEEEERKT_
+      1    0.0%    0.0%  t __ZNK6icu_698numparse4impl18NumberParseMatcher10isFlexibleEv
+      1    0.0%    0.0%  t __ZNK6icu_696number4impl10MicroProps15processQuantityERNS1_15DecimalQuantityERS2_R10UErrorCode
+      1    0.0%    0.0%  t __ZN6icu_696number4impl19NumberFormatterImpl19writeFractionDigitsERKNS1_10MicroPropsERNS1_15DecimalQuantityERNS_22FormattedStringBuilderEiR10UErrorCode
+      1    0.0%    0.0%  t __ZN6icu_696number4impl19NumberFormatterImpl18writeIntegerDigitsERKNS1_10MicroPropsERNS1_15DecimalQuantityERNS_22FormattedStringBuilderEiR10UErrorCode
+      1    0.0%    0.0%  t __ZN6icu_696number4impl19NumberFormatterImpl12writeAffixesERKNS1_10MicroPropsERNS_22FormattedStringBuilderEiiR10UErrorCode
+      1    0.0%    0.0%  t __ZN6icu_696UMutex4lockEv
+      1    0.0%    0.0%  t __ZN6icu_6924FieldPositionOnlyHandlerC1ERNS_13FieldPositionE
+      1    0.0%    0.0%  t __ZN6icu_6915MaybeStackArrayIxLi2EE8copyFromERKS1_R10UErrorCode
+      1    0.0%    0.0%  t __ZN6icu_6912_GLOBAL__N_113AliasReplacer15replaceLanguageEbbbRNS_7UVectorER10UErrorCode
+      1    0.0%    0.0%  t __ZN4node6Buffer12_GLOBAL__N_114ByteLengthUtf8ERKN2v820FunctionCallbackInfoINS2_5ValueEEE
+      1    0.0%    0.0%  t __ZN4node6Buffer12_GLOBAL__N_111StringSliceILNS_8encodingE1EEEvRKN2v820FunctionCallbackInfoINS4_5ValueEEE
+      1    0.0%    0.0%  t __ZN4node2osL10GetCPUInfoERKN2v820FunctionCallbackInfoINS1_5ValueEEE
+      1    0.0%    0.0%  t __ZN4node2fsL5FStatERKN2v820FunctionCallbackInfoINS1_5ValueEEE
+      1    0.0%    0.0%  t __ZN4node2fsL4ReadERKN2v820FunctionCallbackInfoINS1_5ValueEEE
+      1    0.0%    0.0%  t __ZN4node12_GLOBAL__N_16Parser3NewERKN2v820FunctionCallbackInfoINS2_5ValueEEE
+      1    0.0%    0.0%  t __ZN4node12_GLOBAL__N_16Parser12OnStreamReadElRK8uv_buf_t
+      1    0.0%    0.0%  t __ZN4node12_GLOBAL__N_16Parser10InitializeERKN2v820FunctionCallbackInfoINS2_5ValueEEE
+      1    0.0%    0.0%  t __ZN4node10AsyncHooks17pop_async_contextEd
+      1    0.0%    0.0%  t __ZL9hashEntry8UElement
+      1    0.0%    0.0%  t __ZL18_res_findTableItemPK12ResourceDataPKtiPKcPS5_
+      1    0.0%    0.0%  T _u_strchr_69
+      1    0.0%    0.0%  T _u_charsToUChars_69
+      1    0.0%    0.0%  T _task_info
+      1    0.0%    0.0%  T _res_getTableItemByIndex_69
+      1    0.0%    0.0%  T _res_getStringNoTrace_69
+      1    0.0%    0.0%  T _pthread_mach_thread_np
+      1    0.0%    0.0%  T _pselect$DARWIN_EXTSN
+      1    0.0%    0.0%  T _posix_spawnattr_destroy
+      1    0.0%    0.0%  T _mach_port_get_attributes
+      1    0.0%    0.0%  T __ZNK6icu_696number4impl24ImmutablePatternModifier15processQuantityERNS1_15DecimalQuantityERNS1_10MicroPropsER10UErrorCode
+      1    0.0%    0.0%  T __ZNK6icu_6916SimpleDateFormat7_formatERNS_8CalendarERNS_13UnicodeStringERNS_20FieldPositionHandlerER10UErrorCode
+      1    0.0%    0.0%  T __ZNK6icu_6916SimpleDateFormat6formatERNS_8CalendarERNS_13UnicodeStringERNS_13FieldPositionE
+      1    0.0%    0.0%  T __ZNK6icu_6913UnicodeString9doCompareEiiPKDsii
+      1    0.0%    0.0%  T __ZNK6icu_6913OlsonTimeZone5cloneEv
+      1    0.0%    0.0%  T __ZN6icu_697UMemorydlEPv
+      1    0.0%    0.0%  T __ZN6icu_696number4impl18ScientificModifierC1Ev
+      1    0.0%    0.0%  T __ZN6icu_6917GregorianCalendar19handleComputeFieldsEiR10UErrorCode
+      1    0.0%    0.0%  T __ZN6icu_6917DateFormatSymbols19getPatternCharIndexEDs
+      1    0.0%    0.0%  T __ZN6icu_6913UnicodeStringC1ERKS0_
+      1    0.0%    0.0%  T __ZN6icu_6913UnicodeString8doAppendERKS0_ii
+      1    0.0%    0.0%  T __ZN6icu_6913UnicodeString18cloneArrayIfNeededEiiaPPia
+      1    0.0%    0.0%  T __ZN6icu_6910CharString6appendEPKciR10UErrorCode
+      1    0.0%    0.0%  T __ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_8FunctionEEEiPNS2_INS1_5ValueEEE
+      1    0.0%    0.0%  T __ZN4node7TCPWrap5Bind6ERKN2v820FunctionCallbackInfoINS1_5ValueEEE
+      1    0.0%    0.0%  T __ZN4node2fs5CloseERKN2v820FunctionCallbackInfoINS1_5ValueEEE
+      1    0.0%    0.0%  T __ZN4node21InternalCallbackScope5CloseEv
+      1    0.0%    0.0%  T __ZN4node20InternalMakeCallbackEPNS_11EnvironmentEN2v85LocalINS2_6ObjectEEES5_NS3_INS2_8FunctionEEEiPNS3_INS2_5ValueEEENS_13async_contextE
+      1    0.0%    0.0%  T __ZN4node15LibuvStreamWrap9OnUvAllocEmP8uv_buf_t
+      1    0.0%    0.0%  T __ZN4node10StreamBase8JSMethodIXadL_ZNS0_11ReadStartJSERKN2v820FunctionCallbackInfoINS2_5ValueEEEEEEEvS7_
+      1    0.0%    0.0%  T _OPENSSL_LH_insert
+      1    0.0%    0.0%  T _EVP_MD_CTX_reset
+
+ [Summary]:
+   ticks  total  nonlib   name
+     31    1.2%    1.3%  JavaScript
+   2422   92.4%   98.3%  C++
+    121    4.6%    4.9%  GC
+    159    6.1%          Shared libraries
+     10    0.4%          Unaccounted
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+   2328  100.0%   88.8%  TOTAL
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+   1274   48.6%  t __ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1IDnEEPKc
+    461   36.2%    t __ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1IDnEEPKc
+     32    6.9%      t __ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1IDnEEPKc
+      6   18.8%        LazyCompile: ~header /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/response.js:759:29
+      3   50.0%          LazyCompile: ~send /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/response.js:107:25
+      3  100.0%            LazyCompile: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/server.js:11:18
+      3   50.0%          LazyCompile: ~contentType /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/response.js:599:32
+      3  100.0%            LazyCompile: ~send /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/response.js:107:25
+      5   15.6%        LazyCompile: ~expressInit /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/middleware/init.js:29:30
+      5  100.0%          LazyCompile: ~handle /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/layer.js:86:49
+      5  100.0%            LazyCompile: ~trim_prefix /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/index.js:288:23
+      4   12.5%        LazyCompile: ~format /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/content-type/index.js:65:17
+      4  100.0%          LazyCompile: ~setCharset /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/utils.js:246:41
+      4  100.0%            LazyCompile: ~send /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/response.js:107:25
+      3    9.4%        LazyCompile: ~strEscape /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/safe-stable-stringify/stable.js:36:20
+      3  100.0%          LazyCompile: ~stringifyReplacerFn /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/safe-stable-stringify/stable.js:386:30
+      3  100.0%            LazyCompile: ~stringifyReplacerFn /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/safe-stable-stringify/stable.js:386:30
+      2    6.3%        LazyCompile: ~onParserExecuteCommon node:_http_server:689:31
+      2  100.0%          LazyCompile: ~onParserExecute node:_http_server:632:25
+      2    6.3%        LazyCompile: ~checkInvalidHeaderChar node:_http_common:232:32
+      2  100.0%          LazyCompile: ~<anonymous> node:_http_outgoing:561:45
+      2  100.0%            LazyCompile: ~setHeader node:_http_outgoing:571:57
+      2    6.3%        LazyCompile: ~FastBuffer node:internal/buffer:958:14
+      2  100.0%          LazyCompile: ~createUnsafeBuffer node:internal/buffer:1059:28
+      2  100.0%            LazyCompile: ~allocate node:buffer:396:18
+      1    3.1%        LazyCompile: ~use /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/application.js:187:23
+      1  100.0%          Function: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/server.js:1:1
+      1  100.0%            LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1049:37
+      1    3.1%        LazyCompile: ~dirname node:path:1275:10
+      1  100.0%          LazyCompile: ~Module.load node:internal/modules/cjs/loader:963:33
+      1  100.0%            LazyCompile: ~Module._load node:internal/modules/cjs/loader:751:24
+      1    3.1%        LazyCompile: ~deprecate node:internal/util:81:19
+      1  100.0%          Function: ~<anonymous> node:dgram:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1    3.1%        LazyCompile: ~codeClass /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/http-errors/index.js:38:20
+      1  100.0%          LazyCompile: ~forEachCode /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/http-errors/index.js:265:38
+      1  100.0%            t __ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1IDnEEPKc
+      1    3.1%        LazyCompile: ~Module._load node:internal/modules/cjs/loader:751:24
+      1  100.0%          LazyCompile: ~Module.require node:internal/modules/cjs/loader:991:36
+      1  100.0%            LazyCompile: ~require node:internal/modules/cjs/helpers:92:31
+      1    3.1%        LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:488:28
+      1  100.0%          LazyCompile: ~Module._resolveFilename node:internal/modules/cjs/loader:842:35
+      1  100.0%            LazyCompile: ~Module._load node:internal/modules/cjs/loader:751:24
+      1    3.1%        LazyCompile: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/server.js:25:18
+      1  100.0%          LazyCompile: ~onceWrapper node:events:508:21
+      1  100.0%            LazyCompile: ~emit node:events:343:44
+      1    3.1%        Function: ~<anonymous> node:internal/crypto/keys:1:1
+      1  100.0%          LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1  100.0%            LazyCompile: ~nativeModuleRequire node:internal/bootstrap/loaders:332:29
+     30    6.5%      LazyCompile: ~compression /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/compression/index.js:59:31
+     30  100.0%        LazyCompile: ~handle /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/layer.js:86:49
+     30  100.0%          LazyCompile: ~trim_prefix /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/index.js:288:23
+     20   66.7%            LazyCompile: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/index.js:275:64
+     10   33.3%            LazyCompile: *next /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/index.js:176:16
+     23    5.0%      LazyCompile: ~Hash node:internal/crypto/hash:58:14
+     23  100.0%        LazyCompile: ~createHash node:crypto:129:20
+     23  100.0%          LazyCompile: ~entitytag /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/etag/index.js:39:20
+     23  100.0%            LazyCompile: ~etag /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/etag/index.js:70:15
+     22    4.8%      LazyCompile: ~send /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/response.js:107:25
+     22  100.0%        LazyCompile: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/server.js:11:18
+     22  100.0%          LazyCompile: ~handle /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/layer.js:86:49
+     22  100.0%            LazyCompile: ~next /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/route.js:114:16
+     18    3.9%      LazyCompile: ~parse /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/content-type/index.js:106:16
+     18  100.0%        LazyCompile: ~setCharset /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/utils.js:246:41
+     18  100.0%          LazyCompile: ~send /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/response.js:107:25
+     18  100.0%            LazyCompile: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/server.js:11:18
+     16    3.5%      LazyCompile: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/server.js:11:18
+     16  100.0%        LazyCompile: ~handle /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/layer.js:86:49
+     16  100.0%          LazyCompile: ~next /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/route.js:114:16
+     16  100.0%            LazyCompile: ~dispatch /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/route.js:98:45
+     11    2.4%      LazyCompile: ~expressInit /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/middleware/init.js:29:30
+     11  100.0%        LazyCompile: ~handle /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/layer.js:86:49
+     11  100.0%          LazyCompile: ~trim_prefix /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/index.js:288:23
+      7   63.6%            LazyCompile: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/index.js:275:64
+      4   36.4%            LazyCompile: *next /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/index.js:176:16
+     11    2.4%      LazyCompile: ~_send node:_http_outgoing:318:49
+     11  100.0%        LazyCompile: ~write_ node:_http_outgoing:727:16
+     11  100.0%          LazyCompile: ~end node:_http_outgoing:830:45
+     11  100.0%            LazyCompile: ~end /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/compression/index.js:92:28
+     10    2.2%      LazyCompile: ~end node:_http_outgoing:830:45
+     10  100.0%        LazyCompile: ~end /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/compression/index.js:92:28
+     10  100.0%          LazyCompile: ~send /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/response.js:107:25
+     10  100.0%            LazyCompile: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/server.js:11:18
+     10    2.2%      LazyCompile: ~digest node:internal/crypto/hash:115:40
+     10  100.0%        LazyCompile: ~entitytag /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/etag/index.js:39:20
+     10  100.0%          LazyCompile: ~etag /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/etag/index.js:70:15
+     10  100.0%            LazyCompile: ~generateETag /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/utils.js:271:32
+      9    2.0%      LazyCompile: ~writeHead node:_http_server:270:19
+      9  100.0%        LazyCompile: ~writeHead /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/on-headers/index.js:28:29
+      9  100.0%          LazyCompile: ~_implicitHeader node:_http_server:265:68
+      9  100.0%            LazyCompile: ~end /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/compression/index.js:92:28
+      9    2.0%      LazyCompile: ~setWriteHeadHeaders /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/on-headers/index.js:105:30
+      9  100.0%        LazyCompile: ~writeHead /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/on-headers/index.js:28:29
+      9  100.0%          LazyCompile: ~_implicitHeader node:_http_server:265:68
+      9  100.0%            LazyCompile: ~end /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/compression/index.js:92:28
+      9    2.0%      LazyCompile: ~nextTick node:internal/process/task_queues:104:18
+      4   44.4%        LazyCompile: ~onwrite node:internal/streams/writable:425:17
+      4  100.0%          LazyCompile: ~afterWriteDispatched node:internal/stream_base_commons:155:30
+      4  100.0%            LazyCompile: ~writevGeneric node:internal/stream_base_commons:122:23
+      1   11.1%        LazyCompile: ~resume node:internal/streams/readable:973:16
+      1  100.0%          LazyCompile: ~Readable.resume node:internal/streams/readable:959:37
+      1  100.0%            LazyCompile: ~_dump node:_http_incoming:364:49
+      1   11.1%        LazyCompile: ~resume /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/readable-stream/lib/_stream_readable.js:902:16
+      1  100.0%          LazyCompile: ~Readable.resume /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/readable-stream/lib/_stream_readable.js:886:38
+      1  100.0%            LazyCompile: ~Readable.on /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/readable-stream/lib/_stream_readable.js:804:34
+      1   11.1%        LazyCompile: ~resOnFinish node:_http_server:787:21
+      1  100.0%          LazyCompile: ~emit node:events:343:44
+      1  100.0%            LazyCompile: ~onFinish node:_http_outgoing:825:18
+      1   11.1%        LazyCompile: ~onwrite /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/readable-stream/lib/_stream_writable.js:444:17
+      1  100.0%          LazyCompile: ~WritableState.onwrite /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/readable-stream/lib/_stream_writable.js:159:27
+      1  100.0%            LazyCompile: ~afterTransform /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/readable-stream/lib/_stream_transform.js:76:24
+      1   11.1%        LazyCompile: ~endReadable node:internal/streams/readable:1314:21
+      1  100.0%          LazyCompile: ~Readable.read node:internal/streams/readable:391:35
+      1  100.0%            LazyCompile: ~flow node:internal/streams/readable:1004:14
+      9    2.0%      LazyCompile: ~_storeHeader node:_http_outgoing:373:22
+      9  100.0%        LazyCompile: ~writeHead node:_http_server:270:19
+      9  100.0%          LazyCompile: ~writeHead /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/on-headers/index.js:28:29
+      9  100.0%            LazyCompile: ~_implicitHeader node:_http_server:265:68
+      9    2.0%      LazyCompile: *next /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/index.js:176:16
+      6   66.7%        LazyCompile: ~compression /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/compression/index.js:59:31
+      6  100.0%          LazyCompile: ~handle /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/layer.js:86:49
+      6  100.0%            LazyCompile: ~trim_prefix /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/index.js:288:23
+      3   33.3%        LazyCompile: ~handle /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/index.js:136:31
+      3  100.0%          LazyCompile: ~handle /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/application.js:158:29
+      3  100.0%            LazyCompile: ~app /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/express.js:38:21
+      8    1.7%      LazyCompile: ~resOnFinish node:_http_server:787:21
+      4   50.0%        LazyCompile: ~emit node:events:343:44
+      4  100.0%          LazyCompile: ~onFinish node:_http_outgoing:825:18
+      4  100.0%            LazyCompile: ~callback node:internal/streams/writable:550:44
+      4   50.0%        LazyCompile: *emit node:events:343:44
+      4  100.0%          LazyCompile: ~onFinish node:_http_outgoing:825:18
+      4  100.0%            LazyCompile: ~callback node:internal/streams/writable:550:44
+      8    1.7%      LazyCompile: ~onHeaders /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/on-headers/index.js:56:20
+      8  100.0%        LazyCompile: ~compression /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/compression/index.js:59:31
+      8  100.0%          LazyCompile: ~handle /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/layer.js:86:49
+      8  100.0%            LazyCompile: ~trim_prefix /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/index.js:288:23
+      7    1.5%      LazyCompile: ~setHeader node:_http_outgoing:571:57
+      3   42.9%        LazyCompile: ~vary /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/vary/index.js:133:15
+      3  100.0%          LazyCompile: ~onResponseHeaders /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/compression/index.js:140:47
+      3  100.0%            LazyCompile: ~writeHead /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/on-headers/index.js:28:29
+      3   42.9%        LazyCompile: ~header /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/response.js:759:29
+      2   66.7%          LazyCompile: ~contentType /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/response.js:599:32
+      2  100.0%            LazyCompile: ~send /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/response.js:107:25
+      1   33.3%          LazyCompile: ~send /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/response.js:107:25
+      1  100.0%            LazyCompile: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/server.js:11:18
+      1   14.3%        LazyCompile: ~expressInit /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/middleware/init.js:29:30
+      1  100.0%          LazyCompile: ~handle /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/layer.js:86:49
+      1  100.0%            LazyCompile: ~trim_prefix /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/index.js:288:23
+      7    1.5%      LazyCompile: ~Writable.write node:internal/streams/writable:333:36
+      7  100.0%        LazyCompile: ~log /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/winston/lib/winston/transports/console.js:44:6
+      7  100.0%          LazyCompile: ~_write /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/winston-transport/index.js:69:51
+      7  100.0%            LazyCompile: ~doWrite /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/readable-stream/lib/_stream_writable.js:404:17
+      6    1.3%      LazyCompile: ~header /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/response.js:759:29
+      5   83.3%        LazyCompile: ~contentType /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/response.js:599:32
+      5  100.0%          LazyCompile: ~send /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/response.js:107:25
+      5  100.0%            LazyCompile: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/server.js:11:18
+      1   16.7%        LazyCompile: ~send /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/response.js:107:25
+      1  100.0%          LazyCompile: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/server.js:11:18
+      1  100.0%            LazyCompile: ~handle /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/layer.js:86:49
+      6    1.3%      LazyCompile: ~handle /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/index.js:136:31
+      6  100.0%        LazyCompile: ~handle /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/application.js:158:29
+      6  100.0%          LazyCompile: ~app /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/express.js:38:21
+      5   83.3%            LazyCompile: *emit node:events:343:44
+      1   16.7%            LazyCompile: ~emit node:events:343:44
+      6    1.3%      LazyCompile: ~clearIncoming node:_http_server:748:23
+      6  100.0%        LazyCompile: ~resOnFinish node:_http_server:787:21
+      3   50.0%          LazyCompile: ~emit node:events:343:44
+      3  100.0%            LazyCompile: ~onFinish node:_http_outgoing:825:18
+      3   50.0%          LazyCompile: *emit node:events:343:44
+      3  100.0%            LazyCompile: ~onFinish node:_http_outgoing:825:18
+      5    1.1%      LazyCompile: ~writevGeneric node:internal/stream_base_commons:122:23
+      5  100.0%        LazyCompile: ~Socket._writeGeneric node:net:754:42
+      5  100.0%          LazyCompile: ~Socket._writev node:net:786:36
+      5  100.0%            LazyCompile: ~doWrite node:internal/streams/writable:398:17
+      5    1.1%      LazyCompile: ~readPackage node:internal/modules/cjs/loader:284:21
+      5  100.0%        LazyCompile: ~resolveExports node:internal/modules/cjs/loader:466:24
+      5  100.0%          LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:488:28
+      5  100.0%            LazyCompile: ~Module._resolveFilename node:internal/modules/cjs/loader:842:35
+      5    1.1%      LazyCompile: ~getHeader node:_http_outgoing:587:57
+      5  100.0%        LazyCompile: ~res.get /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/response.js:793:19
+      4   80.0%          LazyCompile: ~send /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/response.js:107:25
+      4  100.0%            LazyCompile: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/server.js:11:18
+      1   20.0%          LazyCompile: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/request.js:467:36
+      1  100.0%            t __ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1IDnEEPKc
+      5    1.1%      LazyCompile: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/request.js:467:36
+      5  100.0%        t __ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1IDnEEPKc
+      5  100.0%          LazyCompile: ~send /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/response.js:107:25
+      5  100.0%            LazyCompile: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/server.js:11:18
+      5    1.1%      LazyCompile: *_storeHeader node:_http_outgoing:373:22
+      5  100.0%        LazyCompile: ~writeHead node:_http_server:270:19
+      5  100.0%          LazyCompile: ~writeHead /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/on-headers/index.js:28:29
+      5  100.0%            LazyCompile: ~_implicitHeader node:_http_server:265:68
+     27    2.1%    LazyCompile: ~send /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/response.js:107:25
+     27  100.0%      LazyCompile: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/server.js:11:18
+     27  100.0%        LazyCompile: ~handle /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/layer.js:86:49
+     27  100.0%          LazyCompile: ~next /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/route.js:114:16
+     27  100.0%            LazyCompile: ~dispatch /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/route.js:98:45
+     18    1.4%    LazyCompile: ~setHeader node:_http_outgoing:571:57
+     11   61.1%      LazyCompile: ~header /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/response.js:759:29
+      7   63.6%        LazyCompile: ~send /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/response.js:107:25
+      7  100.0%          LazyCompile: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/server.js:11:18
+      7  100.0%            LazyCompile: ~handle /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/layer.js:86:49
+      4   36.4%        LazyCompile: ~contentType /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/response.js:599:32
+      4  100.0%          LazyCompile: ~send /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/response.js:107:25
+      4  100.0%            LazyCompile: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/server.js:11:18
+      6   33.3%      LazyCompile: ~expressInit /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/middleware/init.js:29:30
+      6  100.0%        LazyCompile: ~handle /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/layer.js:86:49
+      6  100.0%          LazyCompile: ~trim_prefix /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/index.js:288:23
+      3   50.0%            LazyCompile: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/index.js:275:64
+      3   50.0%            LazyCompile: *next /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/index.js:176:16
+      1    5.6%      LazyCompile: ~vary /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/vary/index.js:133:15
+      1  100.0%        LazyCompile: ~onResponseHeaders /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/compression/index.js:140:47
+      1  100.0%          LazyCompile: ~writeHead /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/on-headers/index.js:28:29
+      1  100.0%            LazyCompile: ~_implicitHeader node:_http_server:265:68
+     16    1.3%    LazyCompile: ~parse /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/content-type/index.js:106:16
+     16  100.0%      LazyCompile: ~setCharset /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/utils.js:246:41
+     16  100.0%        LazyCompile: ~send /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/response.js:107:25
+     16  100.0%          LazyCompile: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/server.js:11:18
+     16  100.0%            LazyCompile: ~handle /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/layer.js:86:49
+     15    1.2%    LazyCompile: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/server.js:11:18
+     15  100.0%      LazyCompile: ~handle /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/layer.js:86:49
+     15  100.0%        LazyCompile: ~next /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/route.js:114:16
+     15  100.0%          LazyCompile: ~dispatch /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/route.js:98:45
+     12   80.0%            LazyCompile: ~handle /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/layer.js:86:49
+      3   20.0%            LazyCompile: *next /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/index.js:176:16
+     14    1.1%    LazyCompile: ~header /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/response.js:759:29
+      7   50.0%      LazyCompile: ~send /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/response.js:107:25
+      7  100.0%        LazyCompile: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/server.js:11:18
+      7  100.0%          LazyCompile: ~handle /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/layer.js:86:49
+      7  100.0%            LazyCompile: ~next /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/route.js:114:16
+      7   50.0%      LazyCompile: ~contentType /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/response.js:599:32
+      7  100.0%        LazyCompile: ~send /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/response.js:107:25
+      7  100.0%          LazyCompile: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/server.js:11:18
+      7  100.0%            LazyCompile: ~handle /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/layer.js:86:49
+
+    598   22.8%  T __ZN4node10StreamBase8JSMethodIXadL_ZNS0_6WritevERKN2v820FunctionCallbackInfoINS2_5ValueEEEEEEEvS7_
+    598  100.0%    t __ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1IDnEEPKc
+    598  100.0%      LazyCompile: ~writevGeneric node:internal/stream_base_commons:122:23
+    598  100.0%        LazyCompile: ~Socket._writeGeneric node:net:754:42
+    598  100.0%          LazyCompile: ~Socket._writev node:net:786:36
+    598  100.0%            LazyCompile: ~doWrite node:internal/streams/writable:398:17
+
+    123    4.7%  T __ZN4node10contextify17ContextifyContext15CompileFunctionERKN2v820FunctionCallbackInfoINS2_5ValueEEE
+    123  100.0%    t __ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1IDnEEPKc
+    123  100.0%      LazyCompile: ~compileFunction node:vm:308:25
+    123  100.0%        LazyCompile: ~wrapSafe node:internal/modules/cjs/loader:1011:18
+    123  100.0%          LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1049:37
+    123  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1104:37
+
+    111    4.2%  T __ZN4node13native_module15NativeModuleEnv15CompileFunctionERKN2v820FunctionCallbackInfoINS2_5ValueEEE
+    111  100.0%    t __ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1IDnEEPKc
+    111  100.0%      LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+    103   92.8%        LazyCompile: ~nativeModuleRequire node:internal/bootstrap/loaders:332:29
+     15   14.6%          Function: ~<anonymous> node:crypto:1:1
+     15  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+     12   11.7%          Function: ~<anonymous> node:http:1:1
+     12  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      7    6.8%          LazyCompile: ~initializeCJSLoader node:internal/bootstrap/pre_execution:420:29
+      7  100.0%            LazyCompile: ~prepareMainThreadExecution node:internal/bootstrap/pre_execution:22:36
+      7    6.8%          Function: ~<anonymous> node:tty:1:1
+      7  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      7    6.8%          Function: ~<anonymous> node:_http_client:1:1
+      7  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      6    5.8%          Function: ~<anonymous> node:internal/modules/esm/loader:1:1
+      6  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      5    4.9%          Function: ~<anonymous> node:internal/cluster/primary:1:1
+      5  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      5    4.9%          Function: ~<anonymous> node:internal/child_process:1:1
+      5  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      4    3.9%          Function: ~<anonymous> node:internal/modules/esm/get_source:1:1
+      4  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      4    3.9%          Function: ~<anonymous> node:child_process:1:1
+      4  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      3    2.9%          LazyCompile: ~lazyRequire node:internal/crypto/util:67:21
+      3  100.0%            LazyCompile: ~get node:crypto:287:8
+      3    2.9%          LazyCompile: ~lazyLoadStreams node:fs:2793:25
+      3  100.0%            LazyCompile: ~get ReadStream node:fs:2934:17
+      3    2.9%          Function: ~<anonymous> node:internal/process/esm_loader:1:1
+      3  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      3    2.9%          Function: ~<anonymous> node:internal/crypto/hkdf:1:1
+      3  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      2    1.9%          Function: ~<anonymous> node:internal/source_map/source_map_cache:1:1
+      2  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      2    1.9%          Function: ~<anonymous> node:internal/modules/esm/module_map:1:1
+      2  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      2    1.9%          Function: ~<anonymous> node:internal/modules/cjs/loader:1:1
+      2  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      2    1.9%          Function: ~<anonymous> node:internal/crypto/pbkdf2:1:1
+      2  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      2    1.9%          Function: ~<anonymous> node:cluster:1:1
+      2  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      2    1.9%          Function: ~<anonymous> node:_http_common:1:1
+      2  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      8    7.2%        LazyCompile: ~compileForPublicLoader node:internal/bootstrap/loaders:246:25
+      8  100.0%          LazyCompile: ~loadNativeModule node:internal/modules/cjs/helpers:35:26
+      8  100.0%            LazyCompile: ~Module._load node:internal/modules/cjs/loader:751:24
+
+     51    1.9%  T __ZN4node10StreamBase8JSMethodIXadL_ZNS0_11WriteStringILNS_8encodingE1EEEiRKN2v820FunctionCallbackInfoINS4_5ValueEEEEEEEvS9_
+     51  100.0%    t __ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1IDnEEPKc
+     51  100.0%      LazyCompile: ~handleWriteReq node:internal/stream_base_commons:45:24
+     51  100.0%        LazyCompile: ~writeGeneric node:internal/stream_base_commons:147:22
+     41   80.4%          LazyCompile: ~Socket._writeGeneric node:net:754:42
+     41  100.0%            LazyCompile: ~Socket._write node:net:791:35
+      8   15.7%          LazyCompile: *_write node:internal/streams/writable:283:16
+      8  100.0%            LazyCompile: ~Writable.write node:internal/streams/writable:333:36
+      2    3.9%          LazyCompile: *writeOrBuffer node:internal/streams/writable:365:23
+      2  100.0%            LazyCompile: ~_write node:internal/streams/writable:283:16
+
+     47    1.8%  /usr/lib/system/libsystem_pthread.dylib
+     40   85.1%    t __ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1IDnEEPKc
+      7   17.5%      t __ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1IDnEEPKc
+      5   71.4%        LazyCompile: ~callSiteToString /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/depd/lib/compat/index.js:21:76
+      5  100.0%          LazyCompile: ~get /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/depd/lib/compat/index.js:54:16
+      5  100.0%            Function: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/depd/index.js:1:1
+      2   28.6%        LazyCompile: ~getOwn node:internal/bootstrap/loaders:180:16
+      2  100.0%          LazyCompile: ~syncExports node:internal/bootstrap/loaders:287:14
+      2  100.0%            LazyCompile: ~<anonymous> node:internal/bootstrap/loaders:273:15
+      5   12.5%      LazyCompile: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/server.js:11:18
+      5  100.0%        LazyCompile: ~handle /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/layer.js:86:49
+      5  100.0%          LazyCompile: ~next /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/route.js:114:16
+      5  100.0%            LazyCompile: ~dispatch /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/route.js:98:45
+      4   10.0%      LazyCompile: ~value node:internal/console/constructor:324:20
+      4  100.0%        LazyCompile: ~log node:internal/console/constructor:362:6
+      4  100.0%          t __ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1IDnEEPKc
+      4  100.0%            LazyCompile: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/server.js:25:18
+      2    5.0%      LazyCompile: ~toRealPath node:internal/modules/cjs/loader:387:20
+      2  100.0%        LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:488:28
+      2  100.0%          LazyCompile: ~resolveMainPath node:internal/modules/run_main:11:25
+      2  100.0%            LazyCompile: ~executeUserEntryPoint node:internal/modules/run_main:72:31
+      2    5.0%      LazyCompile: ~setupWarningHandler node:internal/bootstrap/pre_execution:140:29
+      2  100.0%        LazyCompile: ~prepareMainThreadExecution node:internal/bootstrap/pre_execution:22:36
+      2  100.0%          Function: ~<anonymous> node:internal/main/run_main_module:1:1
+      2    5.0%      LazyCompile: ~patchProcessObject node:internal/bootstrap/pre_execution:80:28
+      2  100.0%        LazyCompile: ~prepareMainThreadExecution node:internal/bootstrap/pre_execution:22:36
+      2  100.0%          Function: ~<anonymous> node:internal/main/run_main_module:1:1
+      2    5.0%      LazyCompile: ~fastparse /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/parseurl/index.js:95:20
+      2  100.0%        LazyCompile: ~parseurl /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/parseurl/index.js:35:19
+      2  100.0%          LazyCompile: ~getPathname /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/index.js:532:21
+      2  100.0%            LazyCompile: ~next /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/index.js:176:16
+      2    5.0%      LazyCompile: ~createWritableStdioStream node:internal/bootstrap/switches/is_main_thread:41:35
+      2  100.0%        LazyCompile: ~getStderr node:internal/bootstrap/switches/is_main_thread:132:19
+      2  100.0%          Function: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/debug/src/node.js:1:1
+      2  100.0%            LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1049:37
+      2    5.0%      Function: ~<anonymous> node:internal/fs/rimraf:1:1
+      2  100.0%        LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      2  100.0%          LazyCompile: ~nativeModuleRequire node:internal/bootstrap/loaders:332:29
+      2  100.0%            Function: ~<anonymous> node:internal/fs/promises:1:1
+      1    2.5%      LazyCompile: ~resolve node:path:1091:10
+      1  100.0%        LazyCompile: ~patchProcessObject node:internal/bootstrap/pre_execution:80:28
+      1  100.0%          LazyCompile: ~prepareMainThreadExecution node:internal/bootstrap/pre_execution:22:36
+      1  100.0%            Function: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    2.5%      LazyCompile: ~realpathSync node:fs:2398:22
+      1  100.0%        LazyCompile: ~toRealPath node:internal/modules/cjs/loader:387:20
+      1  100.0%          LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:488:28
+      1  100.0%            LazyCompile: ~resolveMainPath node:internal/modules/run_main:11:25
+      1    2.5%      LazyCompile: ~processTicksAndRejections node:internal/process/task_queues:68:35
+      1    2.5%      LazyCompile: ~prepareMainThreadExecution node:internal/bootstrap/pre_execution:22:36
+      1  100.0%        Function: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    2.5%      LazyCompile: ~parserOnIncoming node:_http_server:851:26
+      1  100.0%        LazyCompile: ~parserOnHeadersComplete node:_http_common:77:33
+      1    2.5%      LazyCompile: ~inspect node:internal/util/inspect:284:17
+      1  100.0%        LazyCompile: ~formatWithOptionsInternal node:internal/util/inspect:1889:35
+      1  100.0%          LazyCompile: ~formatWithOptions node:internal/util/inspect:1881:27
+      1  100.0%            LazyCompile: ~value node:internal/console/constructor:324:20
+      1    2.5%      LazyCompile: ~getHeader node:_http_outgoing:587:57
+      1  100.0%        LazyCompile: ~res.get /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/response.js:793:19
+      1  100.0%          LazyCompile: ~send /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/response.js:107:25
+      1  100.0%            LazyCompile: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/server.js:11:18
+      1    2.5%      LazyCompile: ~createHttpErrorConstructor /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/http-errors/index.js:118:37
+      1  100.0%        Function: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/http-errors/index.js:1:1
+      1  100.0%          LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1049:37
+      1  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1104:37
+      1    2.5%      LazyCompile: ~adapter /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/@dabh/diagnostics/adapters/index.js:11:26
+      1  100.0%        LazyCompile: ~enabled /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/@dabh/diagnostics/diagnostics.js:55:17
+      1  100.0%          LazyCompile: ~dev /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/@dabh/diagnostics/node/development.js:12:38
+      1  100.0%            Function: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/winston/lib/winston/exception-handler.js:1:1
+      1    2.5%      LazyCompile: ~<anonymous> node:internal/fs/utils:356:35
+      1  100.0%        LazyCompile: ~<anonymous> node:internal/fs/utils:667:38
+      1  100.0%          LazyCompile: ~realpathSync node:fs:2398:22
+      1  100.0%            LazyCompile: ~toRealPath node:internal/modules/cjs/loader:387:20
+      1    2.5%      LazyCompile: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/colors/lib/colors.js:99:43
+      1  100.0%        t __ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1IDnEEPKc
+      1  100.0%          Function: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/colors/lib/colors.js:96:23
+      1  100.0%            Function: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/colors/lib/colors.js:1:1
+      1    2.5%      Function: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/methods/index.js:1:1
+      1  100.0%        LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1049:37
+      1  100.0%          LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1104:37
+      1  100.0%            LazyCompile: ~Module.load node:internal/modules/cjs/loader:963:33
+
+     34    1.3%  T __kernelrpc_mach_port_set_attributes
+     18   52.9%    t __ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1IDnEEPKc
+      1    5.6%      t __ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1IDnEEPKc
+      1  100.0%        LazyCompile: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/server.js:25:18
+      1  100.0%          LazyCompile: ~onceWrapper node:events:508:21
+      1  100.0%            LazyCompile: ~emit node:events:343:44
+      1    5.6%      LazyCompile: ~writevGeneric node:internal/stream_base_commons:122:23
+      1  100.0%        LazyCompile: ~Socket._writeGeneric node:net:754:42
+      1  100.0%          LazyCompile: ~Socket._writev node:net:786:36
+      1  100.0%            LazyCompile: ~doWrite node:internal/streams/writable:398:17
+      1    5.6%      LazyCompile: ~toRealPath node:internal/modules/cjs/loader:387:20
+      1  100.0%        LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:488:28
+      1  100.0%          LazyCompile: ~resolveMainPath node:internal/modules/run_main:11:25
+      1  100.0%            LazyCompile: ~executeUserEntryPoint node:internal/modules/run_main:72:31
+      1    5.6%      LazyCompile: ~setupPerfHooks node:internal/bootstrap/pre_execution:226:24
+      1  100.0%        LazyCompile: ~prepareMainThreadExecution node:internal/bootstrap/pre_execution:22:36
+      1  100.0%          Function: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    5.6%      LazyCompile: ~realpathSync node:fs:2398:22
+      1  100.0%        LazyCompile: ~toRealPath node:internal/modules/cjs/loader:387:20
+      1  100.0%          LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:488:28
+      1  100.0%            LazyCompile: ~resolveMainPath node:internal/modules/run_main:11:25
+      1    5.6%      LazyCompile: ~patchProcessObject node:internal/bootstrap/pre_execution:80:28
+      1  100.0%        LazyCompile: ~prepareMainThreadExecution node:internal/bootstrap/pre_execution:22:36
+      1  100.0%          Function: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    5.6%      LazyCompile: ~openSync node:fs:573:18
+      1  100.0%        LazyCompile: ~readFileSync node:fs:447:22
+      1  100.0%          LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1104:37
+      1  100.0%            LazyCompile: ~Module.load node:internal/modules/cjs/loader:963:33
+      1    5.6%      LazyCompile: ~makeStatsCallback node:fs:191:27
+      1  100.0%        LazyCompile: ~stat node:fs:1442:14
+      1  100.0%          LazyCompile: ~stat /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/winston/lib/winston/transports/file.js:419:7
+      1  100.0%            LazyCompile: ~open /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/winston/lib/winston/transports/file.js:387:7
+      1    5.6%      LazyCompile: ~log node:internal/console/constructor:362:6
+      1  100.0%        t __ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1IDnEEPKc
+      1  100.0%          LazyCompile: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/server.js:25:18
+      1  100.0%            LazyCompile: ~onceWrapper node:events:508:21
+      1    5.6%      LazyCompile: ~handle /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/index.js:136:31
+      1  100.0%        LazyCompile: ~handle /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/application.js:158:29
+      1  100.0%          LazyCompile: ~app /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/express.js:38:21
+      1  100.0%            LazyCompile: ~emit node:events:343:44
+      1    5.6%      LazyCompile: ~fastparse /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/parseurl/index.js:95:20
+      1  100.0%        LazyCompile: ~parseurl /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/parseurl/index.js:35:19
+      1  100.0%          LazyCompile: ~getPathname /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/index.js:532:21
+      1  100.0%            LazyCompile: ~next /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/index.js:176:16
+      1    5.6%      LazyCompile: ~debug node:internal/util/debuglog:76:15
+      1  100.0%        LazyCompile: ~logger node:internal/util/debuglog:96:18
+      1  100.0%          LazyCompile: ~Module._resolveLookupPaths node:internal/modules/cjs/loader:661:38
+      1  100.0%            LazyCompile: ~Module._resolveFilename node:internal/modules/cjs/loader:842:35
+      1    5.6%      LazyCompile: ~Writable.write node:internal/streams/writable:333:36
+      1  100.0%        LazyCompile: ~log /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/winston/lib/winston/transports/console.js:44:6
+      1  100.0%          LazyCompile: ~_write /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/winston-transport/index.js:69:51
+      1  100.0%            LazyCompile: ~doWrite /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/readable-stream/lib/_stream_writable.js:404:17
+      1    5.6%      LazyCompile: ~Socket._writeGeneric node:net:754:42
+      1  100.0%        LazyCompile: ~Socket._writev node:net:786:36
+      1  100.0%          LazyCompile: ~doWrite node:internal/streams/writable:398:17
+      1  100.0%            LazyCompile: ~clearBuffer node:internal/streams/writable:529:21
+      1    5.6%      LazyCompile: ~Socket node:net:283:16
+      1  100.0%        LazyCompile: ~WriteStream node:tty:85:21
+      1  100.0%          LazyCompile: ~createWritableStdioStream node:internal/bootstrap/switches/is_main_thread:41:35
+      1  100.0%            LazyCompile: ~getStderr node:internal/bootstrap/switches/is_main_thread:132:19
+      1    5.6%      LazyCompile: ~Console /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/winston/lib/winston/transports/console.js:26:14
+      1  100.0%        Function: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/logger/index.js:1:1
+      1  100.0%          LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1049:37
+      1  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1104:37
+      1    5.6%      Function: ~<anonymous> node:internal/modules/cjs/loader:1:1
+      1  100.0%        LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1  100.0%          LazyCompile: ~nativeModuleRequire node:internal/bootstrap/loaders:332:29
+      1  100.0%            LazyCompile: ~initializeCJSLoader node:internal/bootstrap/pre_execution:420:29
+      1    5.6%      Function: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/debug/src/node.js:1:1
+      1  100.0%        LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1049:37
+      1  100.0%          LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1104:37
+      1  100.0%            LazyCompile: ~Module.load node:internal/modules/cjs/loader:963:33
+
+     33    1.3%  /usr/lib/system/libsystem_malloc.dylib
+     24   72.7%    t __ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1IDnEEPKc
+      7   29.2%      LazyCompile: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/server.js:11:18
+      7  100.0%        LazyCompile: ~handle /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/layer.js:86:49
+      7  100.0%          LazyCompile: ~next /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/route.js:114:16
+      7  100.0%            LazyCompile: ~dispatch /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/route.js:98:45
+      2    8.3%      LazyCompile: ~parse /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/content-type/index.js:106:16
+      2  100.0%        LazyCompile: ~setCharset /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/utils.js:246:41
+      2  100.0%          LazyCompile: ~send /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/response.js:107:25
+      2  100.0%            LazyCompile: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/server.js:11:18
+      1    4.2%      t __ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1IDnEEPKc
+      1  100.0%        LazyCompile: ~readPackage node:internal/modules/cjs/loader:284:21
+      1  100.0%          LazyCompile: ~readPackageScope node:internal/modules/cjs/loader:315:26
+      1  100.0%            LazyCompile: ~trySelf node:internal/modules/cjs/loader:435:17
+      1    4.2%      LazyCompile: ~setImmediate node:timers:278:22
+      1  100.0%        LazyCompile: ~log /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/winston/lib/winston/transports/console.js:44:6
+      1  100.0%          LazyCompile: ~_write /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/winston-transport/index.js:69:51
+      1  100.0%            LazyCompile: ~doWrite /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/readable-stream/lib/_stream_writable.js:404:17
+      1    4.2%      LazyCompile: ~send /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/response.js:107:25
+      1  100.0%        LazyCompile: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/server.js:11:18
+      1  100.0%          LazyCompile: ~handle /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/layer.js:86:49
+      1  100.0%            LazyCompile: ~next /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/route.js:114:16
+      1    4.2%      LazyCompile: ~resolve node:path:1091:10
+      1  100.0%        LazyCompile: ~patchProcessObject node:internal/bootstrap/pre_execution:80:28
+      1  100.0%          LazyCompile: ~prepareMainThreadExecution node:internal/bootstrap/pre_execution:22:36
+      1  100.0%            Function: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    4.2%      LazyCompile: ~realpathSync node:fs:2398:22
+      1  100.0%        LazyCompile: ~toRealPath node:internal/modules/cjs/loader:387:20
+      1  100.0%          LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:488:28
+      1  100.0%            LazyCompile: ~Module._resolveFilename node:internal/modules/cjs/loader:842:35
+      1    4.2%      LazyCompile: ~processTicksAndRejections node:internal/process/task_queues:68:35
+      1    4.2%      LazyCompile: ~forEachMimeType /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/mime-types/index.js:158:52
+      1  100.0%        t __ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1IDnEEPKc
+      1  100.0%          LazyCompile: ~populateMaps /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/mime-types/index.js:154:23
+      1  100.0%            Function: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/mime-types/index.js:1:1
+      1    4.2%      LazyCompile: ~doWrite /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/readable-stream/lib/_stream_writable.js:404:17
+      1  100.0%        LazyCompile: ~writeOrBuffer /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/readable-stream/lib/_stream_writable.js:363:23
+      1  100.0%          LazyCompile: ~Writable.write /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/readable-stream/lib/_stream_writable.js:288:37
+      1  100.0%            LazyCompile: ~DerivedLogger.<computed> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/winston/lib/winston/create-logger.js:71:47
+      1    4.2%      LazyCompile: ~compression /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/compression/index.js:59:31
+      1  100.0%        LazyCompile: ~handle /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/layer.js:86:49
+      1  100.0%          LazyCompile: ~trim_prefix /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/index.js:288:23
+      1  100.0%            LazyCompile: *next /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/express/lib/router/index.js:176:16
+      1    4.2%      LazyCompile: ~assignSocket node:_http_server:240:62
+      1  100.0%        LazyCompile: ~parserOnIncoming node:_http_server:851:26
+      1  100.0%          LazyCompile: ~parserOnHeadersComplete node:_http_common:77:33
+      1    4.2%      LazyCompile: ~Readable.read node:internal/streams/readable:391:35
+      1  100.0%        LazyCompile: ~flow node:internal/streams/readable:1004:14
+      1  100.0%          LazyCompile: ~emitReadable_ node:internal/streams/readable:569:23
+      1  100.0%            LazyCompile: *processTicksAndRejections node:internal/process/task_queues:68:35
+      1    4.2%      LazyCompile: ~Logger /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/winston/lib/winston/logger.js:40:14
+      1  100.0%        LazyCompile: ~DerivedLogger /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/winston/lib/winston/create-logger.js:43:16
+      1  100.0%          LazyCompile: ~module.exports /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/winston/lib/winston/create-logger.js:25:27
+      1  100.0%            Function: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/winston/lib/winston.js:1:1
+      1    4.2%      Function: ~<anonymous> node:net:1:1
+      1  100.0%        LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1  100.0%          LazyCompile: ~nativeModuleRequire node:internal/bootstrap/loaders:332:29
+      1  100.0%            Function: ~<anonymous> node:tty:1:1
+      1    4.2%      Function: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/async/internal/eachOfLimit.js:1:1
+      1  100.0%        LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1049:37
+      1  100.0%          LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1104:37
+      1  100.0%            LazyCompile: ~Module.load node:internal/modules/cjs/loader:963:33
+      1    4.2%      Function: ~<anonymous> /Users/arianfernandez/Desktop/CODERHOUSE/Curso Backend/Curso-Backend-CODERHOUSE/desafio-14-loggers-gzip/node_modules/@dabh/diagnostics/node/development.js:1:1
+      1  100.0%        LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1049:37
+      1  100.0%          LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1104:37
+      1  100.0%            LazyCompile: ~Module.load node:internal/modules/cjs/loader:963:33
+
+     30    1.1%  T _mach_port_allocate
+
