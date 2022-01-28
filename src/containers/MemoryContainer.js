@@ -97,4 +97,4 @@ class MemoryContainer {
     }
 }
 
-module.exports = MemoryContainer;
+export default MemoryContainer;

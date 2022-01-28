@@ -1,10 +1,10 @@
-const FileContainer = require("../../containers/FileContainer");
-const config = require("../../../config");
+import FileContainer from "../../containers/FileContainer.js";
+import config from "../../config.js"
 
 class CartDaoFile extends FileContainer {
     constructor () {
-        super(config.file.cartFilePath)
+        super(`${config.FILE_PATH}${config.file.cartFilePath}`)
     }
 }
 
-module.exports = CartDaoFile;
+export default CartDaoFile;

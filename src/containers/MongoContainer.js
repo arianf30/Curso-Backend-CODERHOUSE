@@ -1,15 +1,15 @@
-const mongoose = require("mongoose");
+import { model, connect } from "mongoose";
 
 class MongoContainer {
     constructor(collection, schema, config) {
-        this.collection = mongoose.model(collection, schema);
+        this.collection = model(collection, schema);
         this.config = config;
         this.init();
     }
 
     init() {
         if (!this.conection) {
-            this.conection = mongoose.connect(this.config.host, this.config.options)
+            this.conection = connect(this.config.host, this.config.options)
         }
     }
 
@@ -84,4 +84,4 @@ class MongoContainer {
     }
 }
 
-module.exports = MongoContainer;
+export default MongoContainer;

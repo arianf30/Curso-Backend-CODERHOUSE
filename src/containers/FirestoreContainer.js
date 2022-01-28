@@ -1,4 +1,4 @@
-var admin = require("firebase-admin");
+import { initializeApp, credential as _credential } from "firebase-admin";
 
 class MongoContainer {
     constructor(collection, config) {
@@ -9,8 +9,8 @@ class MongoContainer {
 
     init() {
         if (!this.connection) {
-            this.connection = admin.initializeApp({
-                credential: admin.credential.cert(this.config)
+            this.connection = initializeApp({
+                credential: _credential.cert(this.config)
             });
             console.log('conectado!');
         }
@@ -84,4 +84,4 @@ class MongoContainer {
     }
 }
 
-module.exports = MongoContainer;
+export default MongoContainer;

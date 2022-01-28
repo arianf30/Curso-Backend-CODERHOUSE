@@ -38,7 +38,7 @@ const renderCart = (data) => {
             let htmlCartBody = '';
             data[0].products.map((elem, index) => {
                 htmlCartBody = `${htmlCartBody}<tr>
-                    <td>${elem.qty}</td>
+                    <td>${elem.id}</td>
                     <td><img style="border-radius: 100%; width: 42px; height: 42px;" src="${elem.thumbnail ? elem.thumbnail : "https://peugeot.navigation.com/static/WFS/Shop-Site/-/Shop/en_US/Product%20Not%20Found.png"}" class="img-thumbnail" style="width: 100px; height: auto;" alt="<%= producto.name %>"></td>
                     <td>${elem.name ? elem.name : ''}</td>
                     <td style="text-align:right;"><button onClick="deleteItemCart(${elem.id})" type="button" class="btn btn-link-danger"><i class="bi bi-trash-fill"></i></button></td>

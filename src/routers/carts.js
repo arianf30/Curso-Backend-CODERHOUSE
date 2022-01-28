@@ -1,9 +1,9 @@
-const express = require('express');
-const isAdmin = require('../middlewares/auth');
-const { selectDaoCart } = require('../daos')
+import express from 'express'
+import isAdmin from '../middlewares/auth.js'
+import { cartDao } from '../daos/index.js'
 
-const cartsRouter = express.Router();
-const cartDao = new selectDaoCart();
+const { Router } = express
+const cartsRouter = new Router()
 
 // CREATE
 cartsRouter.post('/', isAdmin, async (req, res) => {
@@ -46,4 +46,4 @@ cartsRouter.delete('/:id', isAdmin, async (req, res) => {
     res.send({ data: `Carrito ${cart} eliminado correctamente.` });
 });
 
-module.exports = cartsRouter;
+export default cartsRouter;

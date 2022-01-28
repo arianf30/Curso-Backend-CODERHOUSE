@@ -1,9 +1,9 @@
-const express = require('express');
-const isAdmin = require('../middlewares/auth');
-const { selectDao } = require('../daos');
+import express from 'express'
+import isAdmin from '../middlewares/auth.js'
+import { productDao } from '../daos/index.js'
 
-const productsRouter = express.Router();
-const productDao = new selectDao();
+const { Router } = express
+const productsRouter = new Router()
 
 // CREATE
 productsRouter.post('/', isAdmin, async (req, res) => {
@@ -47,4 +47,4 @@ productsRouter.delete('/:id', isAdmin, async (req, res) => {
 });
 
 
-module.exports = productsRouter;
+export default productsRouter

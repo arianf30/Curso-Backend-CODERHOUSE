@@ -1,10 +1,10 @@
-const FirestoreContainer = require("../../containers/FirestoreContainer");
-const config = require("../../../config");
+import FirestoreContainer from "../../containers/FirestoreContainer";
+import { firestore } from "../../../config";
 
 class ProductDaoFirestore extends FirestoreContainer {
     constructor () {
-        super('products', config.firestore)
+        super('products', firestore)
     }
 }
 
-module.exports = ProductDaoFirestore;
+export default ProductDaoFirestore;

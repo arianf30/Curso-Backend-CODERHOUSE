@@ -1,4 +1,15 @@
-const options = {
+const config = {
+    PERS: process.env.PERS,
+    FILE_PATH: process.env.FILE_PATH,
+    DB_USER: process.env.DB_USER,
+    DB_PASSWORD: process.env.DB_PASSWORD,
+    DB_DATABASE: process.env.DB_DATABASE,
+    DB_HOST: process.env.DB_HOST,
+    DB_SQLITE_PATH: './DB/SQLITE/ecommerce.sqlite'
+};
+
+export default {
+    ...config,
     mongodb: {
         host: 'mongodb://localhost/ecommerce',
         options: {
@@ -8,8 +19,8 @@ const options = {
         }
     },
     file: {
-        productFilePath: './data/products.json',
-        cartFilePath: './data/products.json',
+        productFilePath: '/products.json',
+        cartFilePath: '/carts.json',
     },
     firestore: {
         type: "service_account",
@@ -24,5 +35,3 @@ const options = {
         client_x509_cert_url: "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-khl7l%40coderhouse-backend-f23d5.iam.gserviceaccount.com"
     }
 }
-
-module.exports = options;

@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Prod 1",
+    "price": 100,
+    "thumbnail": "",
+    "id": 1,
+    "description": "Descripción 1",
+    "code": 123,
+    "stock": 4
+  },
+  {
+    "name": "Iphone 11",
+    "price": "100000",
+    "thumbnail": "https://www.apple.com/v/iphone-11/e/images/meta/og__f2jtwncwsl2e_specs.png",
+    "id": 2
+  },
+  {
+    "name": "Samsung Gear S3 Frontier",
+    "price": "98900",
+    "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_674137-MLA31113803849_062019-F.webp",
+    "id": 3
+  },
+  {
+    "name": "Producto Nuevo",
+    "description": "New desc",
+    "price": "2000",
+    "thumbnail": "https://picsum.photos/200/300",
+    "code": "237",
+    "stock": "2",
+    "id": 4
+  }
+]

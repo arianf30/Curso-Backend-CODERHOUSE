@@ -1,6 +1,6 @@
-const MongoContainer = require("../../containers/MongoContainer");
-const { Schema } = require("mongoose");
-const config = require("../../../config");
+import MongoContainer from "../../containers/MongoContainer";
+import { Schema } from "mongoose";
+import { mongodb } from "../../../config";
 
 class ProductDaoMongoDb extends MongoContainer {
     constructor () {
@@ -11,8 +11,8 @@ class ProductDaoMongoDb extends MongoContainer {
             photo: { type: String, required: true },
             price: { type: Number, required: true },
             stock: { type: Number, required: true },
-        }), config.mongodb )
+        }), mongodb )
     }
 }
 
-module.exports = ProductDaoMongoDb;
+export default ProductDaoMongoDb;

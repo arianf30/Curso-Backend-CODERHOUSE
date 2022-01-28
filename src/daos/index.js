@@ -1,31 +1,23 @@
-const ProductDaoMongoDb = require('./products/ProductDaoMongoDb');
-const ProductDaoMemory = require('./products/ProductDaoMemory');
-const ProductDaoFirestore = require('./products/ProductDaoFirestore');
-const ProductDaoFile = require('./products/ProductDaoFile');
-const CartDaoMongoDb = require('./carts/CartDaoMongoDb');
-const CartDaoMemory = require('./carts/CartDaoMemory');
-const CartDaoFirestore = require('./carts/CartDaoFirestore');
-const CartDaoFile = require('./carts/CartDaoFile');
+import config from '../config.js'
 
-const daos = {}
-if (process.env.STORAGE === 'mongodb') {
-  daos['selectDao'] = ProductDaoMongoDb;
-  daos['selectDaoCart'] = CartDaoMongoDb;
+let productDao
+let cartDao
+
+switch (config.PERS) {
+    case 'json':
+        const { default: ProductDaoFile } = await import('./products/ProductDaoFile.js')
+        const { default: CartDaoFile } = await import('./carts/CartDaoFile.js')
+        
+        productDao = new ProductDaoFile()
+        cartDao = new CartDaoFile()
+        break
+    default:
+        // const { default: ProductDaoFile } = await import('./products/ProductDaoFile.js')
+        // const { default: CartDaoFile } = await import('./carts/CartDaoFile.js')
+        
+        // productDao = new ProductDaoFile()
+        // cartDao = new CartDaoFile()
+        break
 }
 
-if (process.env.STORAGE === 'memory') {
-  daos['selectDao'] = ProductDaoMemory;
-  daos['selectDaoCart'] = CartDaoMemory;
-}
-
-if (process.env.STORAGE === 'firestore') {
-  daos['selectDao'] = ProductDaoFirestore;
-  daos['selectDaoCart'] = CartDaoFirestore;
-}
-
-if (process.env.STORAGE === 'file') {
-  daos['selectDao'] = ProductDaoFile;
-  daos['selectDaoCart'] = CartDaoFile;
-}
-
-module.exports = daos;
+export { productDao, cartDao }
