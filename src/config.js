@@ -11,11 +11,11 @@ const config = {
 export default {
     ...config,
     mongodb: {
-        host: 'mongodb://localhost/ecommerce',
+        cnxStr: `mongodb+srv://${config.DB_USER}:${config.DB_PASSWORD}@${config.DB_HOST}/${config.DB_DATABASE}?retryWrites=true&w=majority`,
         options: {
             useNewUrlParser: true,
             useUnifiedTopology: true,
-            serverSelectionTimeoutMS: 5000
+            serverSelectionTimeoutMS: 5000,
         }
     },
     file: {

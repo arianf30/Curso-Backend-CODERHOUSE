@@ -1,49 +1,49 @@
 import express from 'express'
-import isAdmin from '../middlewares/auth.js'
-import { cartDao } from '../daos/index.js'
+import { cartDao, productDao } from '../daos/index.js'
 
 const { Router } = express
+
+//--------------------------------------------
+// configuro router de carritos
+
 const cartsRouter = new Router()
 
-// CREATE
-cartsRouter.post('/', isAdmin, async (req, res) => {
-    const newCart = req.body;
-    const idSave = await cartDao.create(newCart);
-    res.send({ data: `Carrito ${idSave} creado correctamente.` });
-});
-
-// READ
 cartsRouter.get('/', async (req, res) => {
-    const data = await cartDao.readAll();
-    res.send({ data });
-});
-cartsRouter.get('/:id', async (req, res) => {
-    const paramId = req.params.id;
-    const cart = await cartDao.readId(paramId);
-    if (cart === null) {
-        res.send({
-            error: 'Carrito no encontrado'
-        });
-    } else {
-        res.send({
-            data: cart
-        });
-    }
-});
+    res.json((await cartDao.readAll()).map(c => c.id))
+})
 
-// UPDATE
-cartsRouter.put('/:id', isAdmin, async (req, res) => {
-    const paramId = req.params.id;
-    const cart = req.body;
-    const idEdit = await cartDao.update(paramId, cart);
-    res.send({ data: `Carrito ${idEdit} editado correctamente.` });
-});
+cartsRouter.post('/', async (req, res) => {
+    res.json(await cartDao.create())
+})
 
-// DELETE
-cartsRouter.delete('/:id', isAdmin, async (req, res) => {
-    const paramId = req.params.id;
-    const cart = await cartDao.deleteId(paramId);
-    res.send({ data: `Carrito ${cart} eliminado correctamente.` });
-});
+cartsRouter.delete('/:id', async (req, res) => {
+    res.json(await cartDao.delete(req.params.id))
+})
 
-export default cartsRouter;
+//--------------------------------------------------
+// router de productos en carrito
+
+cartsRouter.get('/:id/productos', async (req, res) => {
+    const cart = await cartDao.read(req.params.id)
+    res.json(cart.products)
+})
+
+// carritosRouter.post('/:id/productos', async (req, res) => {
+//     const carrito = await carritosApi.read(req.params.id)
+//     const producto = await productosApi.read(req.body.id)
+//     carrito.productos.push(producto)
+//     await carritosApi.update(carrito)
+//     res.end()
+// })
+
+// carritosRouter.delete('/:id/productos/:idProd', async (req, res) => {
+//     const carrito = await carritosApi.read(req.params.id)
+//     const index = carrito.productos.findIndex(p => p.id == req.params.idProd)
+//     if (index != -1) {
+//         carrito.productos.splice(index, 1)
+//         await carritosApi.update(carrito)
+//     }
+//     res.end()
+// })
+
+export default cartsRouter

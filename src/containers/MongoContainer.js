@@ -1,87 +1,88 @@
-import { model, connect } from "mongoose";
+import mongoose from 'mongoose'
+import config from '../config.js'
+import { asPOJO, renameField, removeField } from '../utils/objectUtils.js'
+
+await mongoose.connect(config.mongodb.cnxStr, config.mongodb.options)
 
 class MongoContainer {
-    constructor(collection, schema, config) {
-        this.collection = model(collection, schema);
-        this.config = config;
-        this.init();
-    }
 
-    init() {
-        if (!this.conection) {
-            this.conection = connect(this.config.host, this.config.options)
-        }
+    constructor(nombreColeccion, esquema) {
+        this.coleccion = mongoose.model(nombreColeccion, esquema)
     }
 
     // CREATE
-    async create(item) {
+    async create(nuevoElem) {
         try {
-            const document = await this.collection.create(item);
-            console.log('Create: ', { document });
-            return document._id;
+            let doc = await this.coleccion.create(nuevoElem);
+            doc = asPOJO(doc)
+            renameField(doc, '_id', 'id')
+            removeField(doc, '__v')
+            return doc
         } catch (error) {
-            console.error('Error: ', error);
+            throw new Error(`Error al guardar: ${error}`)
         }
     }
 
     // READ
-    async readId(id) {
+    async read(id) {
         try {
-            const document = await this.collection.find({ _id: id });
-            console.log('Read ID: ', { document });
-            if (document.length === 0) {
-                return null;
+            const docs = await this.coleccion.find({ '_id': id }, { __v: 0 })
+            if (docs.length == 0) {
+                throw new Error('Error al listar por id: no encontrado')
             } else {
-                return document;
+                const result = renameField(asPOJO(docs[0]), '_id', 'id')
+                return result
             }
         } catch (error) {
-            console.error('Error: ', error);
+            throw new Error(`Error al listar por id: ${error}`)
         }
     }
     async readAll() {
         try {
-            const documents = await this.collection.find();
-            console.log('Read All: ', { documents });
-            if (documents.length === 0) {
-                return null;
-            } else {
-                return documents;
-            }
+            let docs = await this.coleccion.find({}, { __v: 0 }).lean()
+            docs = docs.map(asPOJO)
+            docs = docs.map(d => renameField(d, '_id', 'id'))
+            return docs
         } catch (error) {
-            console.error('Error: ', error);
+            throw new Error(`Error al listar todo: ${error}`)
         }
     }
 
     // UPDATE
-    async update(id, element) {
-        const { n, nModified } = await this.collection.updateOne({ _id: id }, { $set: { element } });
-        if (n == 0 || nModified == 0) {
-            console.log(`Elemento con el ID ${id} no fue encontrado`);
-            return null;
-        } else {
-            const elementUpdated = await this.readId(id);
-            return elementUpdated;
+    async update(nuevoElem) {
+        try {
+            renameField(nuevoElem, 'id', '_id')
+            const { n, nModified } = await this.coleccion.replaceOne({ '_id': nuevoElem._id }, nuevoElem)
+            if (n == 0 || nModified == 0) {
+                throw new Error('Error al actualizar: no encontrado')
+            } else {
+                renameField(nuevoElem, '_id', 'id')
+                removeField(nuevoElem, '__v')
+                return asPOJO(nuevoElem)
+            }
+        } catch (error) {
+            throw new Error(`Error al actualizar: ${error}`)
         }
     }
 
     // DELETE
-    async deleteId(id) {
+    async delete(id) {
         try {
-            const response = await this.collection.deleteOne({ _id: id });
-            console.log('Delete ID: ', { response });
+            const { n, nDeleted } = await this.coleccion.deleteOne({ '_id': id })
+            if (n == 0 || nDeleted == 0) {
+                throw new Error('Error al borrar: no encontrado')
+            }
         } catch (error) {
-            console.error('Error: ', error);
+            throw new Error(`Error al borrar: ${error}`)
         }
     }
-
     async deleteAll() {
         try {
-            const response = await this.collection.deleteMany();
-            console.log('Delete All: ', { response });
+            await this.coleccion.deleteMany({})
         } catch (error) {
-            console.error('Error: ', error);
+            throw new Error(`Error al borrar: ${error}`)
         }
     }
 }
 
-export default MongoContainer;
+export default MongoContainer
