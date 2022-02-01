@@ -1,31 +1,31 @@
 import express from 'express'
-import { cartDao, productDao } from '../daos/index.js'
+import { cartDao } from '../daos/index.js'
 
 const { Router } = express
 
-//--------------------------------------------
+// --------------------------------------------
 // configuro router de carritos
 
 const cartsRouter = new Router()
 
 cartsRouter.get('/', async (req, res) => {
-    res.json((await cartDao.readAll()).map(c => c.id))
+  res.json((await cartDao.readAll()).map(c => c.id))
 })
 
 cartsRouter.post('/', async (req, res) => {
-    res.json(await cartDao.create())
+  res.json(await cartDao.create())
 })
 
 cartsRouter.delete('/:id', async (req, res) => {
-    res.json(await cartDao.delete(req.params.id))
+  res.json(await cartDao.delete(req.params.id))
 })
 
-//--------------------------------------------------
+// --------------------------------------------------
 // router de productos en carrito
 
 cartsRouter.get('/:id/productos', async (req, res) => {
-    const cart = await cartDao.read(req.params.id)
-    res.json(cart.products)
+  const cart = await cartDao.read(req.params.id)
+  res.json(cart.products)
 })
 
 // carritosRouter.post('/:id/productos', async (req, res) => {

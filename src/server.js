@@ -1,39 +1,32 @@
 import express from 'express'
 import cors from 'cors'
 
-// import authRouter from './routers/auth.js'
-import cartsRouter from './routers/carts.js'
-// import productsRouter from './routers/products.js'
-// import { productDao, cartDao } from './daos/index.js'
-
 import { Server as HttpServer } from 'http'
-import { Server as SocketServer } from 'socket.io'
+// import { Server as SocketServer } from 'socket.io'
 
-//------------------------------------------------------------------------
-// instancio servidor
+// ROUTERS
+import cartsRouter from './routers/carts.js'
+import usersRouter from './controllers/users.js'
 
 export const app = express()
 
-const httpServer = new HttpServer(app);
-const io = new SocketServer(httpServer, {
-    cors: {
-        origins: ["*"],
-        handlePreflightRequest: (req, res) => {
-            res.writeHead(200, {
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Methods": "GET,POST",
-                "Access-Control-Allow-Headers": "my-custom-header",
-                "Access-Control-Allow-Credentials": true
-            });
-            res.end();
-        }
-    }
-});
+const httpServer = new HttpServer(app)
+// const io = new SocketServer(httpServer, {
+//   cors: {
+//     origins: ['*'],
+//     handlePreflightRequest: (req, res) => {
+//       res.writeHead(200, {
+//         'Access-Control-Allow-Origin': '*',
+//         'Access-Control-Allow-Methods': 'GET,POST',
+//         'Access-Control-Allow-Headers': 'my-custom-header',
+//         'Access-Control-Allow-Credentials': true
+//       })
+//       res.end()
+//     }
+//   }
+// })
 
-//--------------------------------------------
-// configuro el servidor
-
-app.use(cors());
+app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static('public'))
@@ -48,8 +41,8 @@ app.get('/', async (req, res) => {
 
 // app.use('/api/auth', authRouter)
 app.use('/api/carritos', cartsRouter)
+app.use('/api/users', usersRouter)
 // app.use('/api/productos', productsRouter)
-
 
 // // Enciendo el Socket
 // io.on('connection', async (socket) => {
