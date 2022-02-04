@@ -8,3 +8,8 @@ mongoose.connect(config.mongodb.cnxStr, config.mongodb.options)
   .catch(err => {
     console.error(err)
   })
+
+process.on('uncaughtException', error => {
+  console.log(error)
+  mongoose.disconnect()
+})

@@ -2,10 +2,26 @@ import mongoose from 'mongoose'
 const { Schema } = mongoose
 
 const userSchema = new Schema({
-  email: String,
-  name: String,
+  email: {
+    type: String,
+    required: true,
+    match: /.+@.+\..+/,
+    unique: true
+  },
   passwordHash: String,
-  notes: [Array]
+  name: String,
+  address: String,
+  age: Number,
+  phone: Number,
+  avatar: String,
+  carts: [{
+    type: Schema.Types.ObjectId,
+    ref: 'carts'
+  }],
+  products: [{
+    type: Schema.Types.ObjectId,
+    ref: 'products'
+  }]
 })
 
 userSchema.set('toJSON', {

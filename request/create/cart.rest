@@ -1,0 +1,7 @@
+POST http://localhost:8080/api/carts
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmQyMzU0OTc0ZDhhNzgwYWMyMjdlMiIsImVtYWlsIjoiYXJpYW5mZXJuYW5kZXpAZ21haWwuY29tIiwiaWF0IjoxNjQzOTgwNjQwfQ.s3msheRxHVBvl0t9vQu4mDoKRwfoxt_D08thse6XIZw
+
+{
+
+}
