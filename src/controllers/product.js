@@ -1,13 +1,8 @@
-import { Router } from 'express'
-import userExtractor from '../middlewares/userExtractor.js'
 import Product from '../models/Product.js'
 import User from '../models/User.js'
 
-// /api/products
-const productsRouter = new Router()
-
 // Create Product
-productsRouter.post('/', userExtractor, async (req, res, next) => {
+export const createProduct = async (req, res, next) => {
   const { userId } = req
   const { title, price, thumbnail } = req.body
 
@@ -34,10 +29,10 @@ productsRouter.post('/', userExtractor, async (req, res, next) => {
   } catch (error) {
     return next(error)
   }
-})
+}
 
 // All Products
-productsRouter.get('/', async (req, res, next) => {
+export const getAll = async (req, res, next) => {
   try {
     const listProducts = await Product.find({}).populate('user', {
       email: 1,
@@ -47,10 +42,10 @@ productsRouter.get('/', async (req, res, next) => {
   } catch (error) {
     return next(error)
   }
-})
+}
 
 // Product By ID
-productsRouter.get('/:productId', async (req, res, next) => {
+export const productById = async (req, res, next) => {
   const { productId } = req.params
   try {
     const listProducts = await Product.findById(productId).populate('user', {
@@ -61,10 +56,10 @@ productsRouter.get('/:productId', async (req, res, next) => {
   } catch (error) {
     return next(error)
   }
-})
+}
 
 // Delete By ID
-productsRouter.delete('/:productId', async (req, res, next) => {
+export const deleteById = async (req, res, next) => {
   const { productId } = req.params
   try {
     const { deletedCount } = await Product.deleteOne({ _id: productId })
@@ -75,10 +70,10 @@ productsRouter.delete('/:productId', async (req, res, next) => {
   } catch (error) {
     return next(error)
   }
-})
+}
 
 // Editar un producto
-productsRouter.put('/', async (req, res, next) => {
+export const editProduct = async (req, res, next) => {
   const { productId, newProduct } = req.body
 
   try {
@@ -87,6 +82,4 @@ productsRouter.put('/', async (req, res, next) => {
   } catch (error) {
     return next(error)
   }
-})
-
-export default productsRouter
+}

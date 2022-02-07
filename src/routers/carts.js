@@ -1,49 +1,17 @@
-import express from 'express'
-import { cartDao } from '../daos/index.js'
+import { Router } from 'express'
+import { activeCartByUserId, addToCart, cartById, cartByUserId, checkoutCart, createCart, editCart, getCarts, removeToCart } from '../controllers/cart.js'
+import userExtractor from '../middlewares/userExtractor.js'
 
-const { Router } = express
+const cartRouter = new Router()
 
-// --------------------------------------------
-// configuro router de carritos
+cartRouter.post('/', userExtractor, createCart)
+cartRouter.get('/', getCarts)
+cartRouter.get('/:cartId', cartById)
+cartRouter.get('/user/:userId', cartByUserId)
+cartRouter.get('/user/:userId/active', activeCartByUserId)
+cartRouter.post('/add', userExtractor, addToCart)
+cartRouter.post('/remove', userExtractor, removeToCart)
+cartRouter.post('/finalizar', userExtractor, checkoutCart)
+cartRouter.put('/', editCart)
 
-const cartsRouter = new Router()
-
-cartsRouter.get('/', async (req, res) => {
-  res.json((await cartDao.readAll()).map(c => c.id))
-})
-
-cartsRouter.post('/', async (req, res) => {
-  res.json(await cartDao.create())
-})
-
-cartsRouter.delete('/:id', async (req, res) => {
-  res.json(await cartDao.delete(req.params.id))
-})
-
-// --------------------------------------------------
-// router de productos en carrito
-
-cartsRouter.get('/:id/productos', async (req, res) => {
-  const cart = await cartDao.read(req.params.id)
-  res.json(cart.products)
-})
-
-// carritosRouter.post('/:id/productos', async (req, res) => {
-//     const carrito = await carritosApi.read(req.params.id)
-//     const producto = await productosApi.read(req.body.id)
-//     carrito.productos.push(producto)
-//     await carritosApi.update(carrito)
-//     res.end()
-// })
-
-// carritosRouter.delete('/:id/productos/:idProd', async (req, res) => {
-//     const carrito = await carritosApi.read(req.params.id)
-//     const index = carrito.productos.findIndex(p => p.id == req.params.idProd)
-//     if (index != -1) {
-//         carrito.productos.splice(index, 1)
-//         await carritosApi.update(carrito)
-//     }
-//     res.end()
-// })
-
-// export default cartsRouter
+export default cartRouter

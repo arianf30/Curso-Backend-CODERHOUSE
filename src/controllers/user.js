@@ -1,13 +1,42 @@
 import bcrypt from 'bcrypt'
-import { Router } from 'express'
 import User from '../models/User.js'
 import nodemailer from 'nodemailer'
+import jsonwebtoken from 'jsonwebtoken'
 
-// /api/users
-const usersRouter = new Router()
+// Login User
+export const loginUser = async (req, res) => {
+  const { body } = req
+  const { email, password } = body
+
+  const user = await User.findOne({ email })
+  const passwordCorrect = user === null
+    ? false
+    : await bcrypt.compare(password, user.passwordHash)
+
+  if (!user || !passwordCorrect) {
+    return res.status(401).json({
+      error: 'Email o contraseña inválido'
+    })
+  }
+
+  const userForToken = {
+    id: user._id,
+    email: user.email
+  }
+  const token = jsonwebtoken.sign(userForToken, process.env.SECRET)
+  return res.send({
+    id: user.id,
+    name: user.name,
+    email: user.email,
+    products: user.products,
+    address: user.address,
+    phone: user.phone,
+    jwt: token
+  })
+}
 
 // All Users
-usersRouter.get('/', async (req, res, next) => {
+export const getAll = async (req, res, next) => {
   try {
     const listUsers = await User.find({}).populate('products', {
       title: 1,
@@ -17,10 +46,10 @@ usersRouter.get('/', async (req, res, next) => {
   } catch (error) {
     return next(error)
   }
-})
+}
 
 // Sign Up
-usersRouter.post('/signup', async (req, res, next) => {
+export const signupUser = async (req, res, next) => {
   const { body } = req
   const { email, name, password, address, phone } = body
 
@@ -71,10 +100,10 @@ usersRouter.post('/signup', async (req, res, next) => {
     // console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info))
   }
   sendEmail().catch(console.error)
-})
+}
 
 // Delete By ID
-usersRouter.delete('/:userId', async (req, res, next) => {
+export const deleteUser = async (req, res, next) => {
   const { userId } = req.params
   try {
     const { deletedCount } = await User.deleteOne({ _id: userId })
@@ -85,10 +114,10 @@ usersRouter.delete('/:userId', async (req, res, next) => {
   } catch (error) {
     return next(error)
   }
-})
+}
 
 // Editar un usuario
-usersRouter.put('/', async (req, res, next) => {
+export const editUser = async (req, res, next) => {
   const { userId, newUser } = req.body
 
   try {
@@ -97,6 +126,4 @@ usersRouter.put('/', async (req, res, next) => {
   } catch (error) {
     return next(error)
   }
-})
-
-export default usersRouter
+}

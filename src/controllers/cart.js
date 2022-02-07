@@ -1,5 +1,4 @@
 import { Router } from 'express'
-import userExtractor from '../middlewares/userExtractor.js'
 import Cart from '../models/Cart.js'
 import User from '../models/User.js'
 
@@ -7,7 +6,7 @@ import User from '../models/User.js'
 const cartsRouter = new Router()
 
 // Create Cart
-cartsRouter.post('/', userExtractor, async (req, res, next) => {
+export const createCart = async (req, res, next) => {
   const { userId } = req
   const user = await User.findById(userId)
   if (!user) return next({ name: 'UserDeleted' })
@@ -26,10 +25,10 @@ cartsRouter.post('/', userExtractor, async (req, res, next) => {
   } catch (error) {
     return next(error)
   }
-})
+}
 
 // All Carts
-cartsRouter.get('/', async (req, res, next) => {
+export const getCarts = async (req, res, next) => {
   try {
     const listCarts = await Cart.find({}).populate('user', {
       email: 1,
@@ -39,10 +38,10 @@ cartsRouter.get('/', async (req, res, next) => {
   } catch (error) {
     return next(error)
   }
-})
+}
 
 // Cart By ID
-cartsRouter.get('/:cartId', async (req, res, next) => {
+export const cartById = async (req, res, next) => {
   const { cartId } = req.params
   try {
     const listCarts = await Cart.findById(cartId).populate('user', {
@@ -53,10 +52,10 @@ cartsRouter.get('/:cartId', async (req, res, next) => {
   } catch (error) {
     return next(error)
   }
-})
+}
 
 // Carts By User ID
-cartsRouter.get('/user/:userId', async (req, res, next) => {
+export const cartByUserId = async (req, res, next) => {
   const { userId } = req.params
   try {
     const listCarts = await Cart.find({ user: userId })
@@ -64,10 +63,10 @@ cartsRouter.get('/user/:userId', async (req, res, next) => {
   } catch (error) {
     return next(error)
   }
-})
+}
 
 // Active Carts By User ID
-cartsRouter.get('/user/:userId/active', async (req, res, next) => {
+export const activeCartByUserId = async (req, res, next) => {
   const { userId } = req.params
   try {
     const listCarts = await Cart.findOne({ user: userId, status: 'Inicializado' }, null, { sort: { initDate: -1 } })
@@ -75,10 +74,10 @@ cartsRouter.get('/user/:userId/active', async (req, res, next) => {
   } catch (error) {
     return next(error)
   }
-})
+}
 
 // Add Product to Cart by User ID
-cartsRouter.post('/add', userExtractor, async (req, res, next) => {
+export const addToCart = async (req, res, next) => {
   const { productId, addCount } = req.body
   const { userId } = req
   const user = await User.findById(userId)
@@ -102,10 +101,10 @@ cartsRouter.post('/add', userExtractor, async (req, res, next) => {
   } catch (error) {
     next(error)
   }
-})
+}
 
 // Remove Product to Cart by User ID
-cartsRouter.post('/remove', userExtractor, async (req, res, next) => {
+export const removeToCart = async (req, res, next) => {
   const { productId } = req.body
   const { userId } = req
   const user = await User.findById(userId)
@@ -126,10 +125,10 @@ cartsRouter.post('/remove', userExtractor, async (req, res, next) => {
   } catch (error) {
     next(error)
   }
-})
+}
 
 // Finalizar Compra - Cerrar Carrito
-cartsRouter.post('/finalizar', userExtractor, async (req, res, next) => {
+export const checkoutCart = async (req, res, next) => {
   const { products } = req.body
   const { userId } = req
   const user = await User.findById(userId)
@@ -150,10 +149,10 @@ cartsRouter.post('/finalizar', userExtractor, async (req, res, next) => {
   } catch (error) {
     return next(error)
   }
-})
+}
 
 // Editar un carrito
-cartsRouter.put('/', async (req, res, next) => {
+export const editCart = async (req, res, next) => {
   const { cartId, newCart } = req.body
 
   try {
@@ -162,6 +161,6 @@ cartsRouter.put('/', async (req, res, next) => {
   } catch (error) {
     return next(error)
   }
-})
+}
 
 export default cartsRouter

@@ -1,6 +1,6 @@
 POST http://localhost:8080/api/carts/add
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZjk2MTI2Y2MzMjYyN2FiYzNhZTVmMyIsImVtYWlsIjoiYXJpYW5mZXJuYW5kZXpAZ21haWwuY29tIiwiaWF0IjoxNjQzODk3NjQxfQ.66GcJ_hywv-BHsLRmJPgxrCQpm7FEh6zEPusP4U-LfA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmQyMzU0OTc0ZDhhNzgwYWMyMjdlMiIsImVtYWlsIjoiYXJpYW5mZXJuYW5kZXpAZ21haWwuY29tIiwiaWF0IjoxNjQ0MTk0NDkxfQ.atQ359-CM4UN-rTb9P1daGtiDJWyi28z_Msj5T1zDUE
 
 {
   "productId": "61f9700e96edb5e34a2f1c2c",
