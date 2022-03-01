@@ -53,7 +53,7 @@ describe('Test de la API', () => {
       newProduct: {
         title: 'LISTERINE - Enjuague bucal - Editado con Mocha',
         price: 490,
-        thumbnail: 'https://jumboargentina.vtexassets.com/arquivos/ids/439627-800-600?v=636517679773430000&width=800&height=600&aspect=true'
+        thumbnail: ''
       }
     })
       .then(response => {
