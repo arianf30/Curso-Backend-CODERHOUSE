@@ -18,7 +18,7 @@ const { productDao: productsApi } = await PersistenceFactory.getInstance(getPers
 
 const productRouter = new Router()
 
-productRouter.get('/', productsApi.getAll())
+productRouter.get('/', getAll)
 productRouter.post('/', userExtractor, createProduct)
 productRouter.get('/:productId', productById)
 productRouter.delete('/:productId', deleteById)
