@@ -3,7 +3,7 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmQyMzU0OTc0ZDhhNzgwYWMyMjdlMiIsImVtYWlsIjoiYXJpYW5mZXJuYW5kZXpAZ21haWwuY29tIiwiaWF0IjoxNjQ0MDE1MzU3fQ.TKS7I7-mYP9MsckM7c3TCgQoJphBszEUTdeaRTzKHSQ
 
 {
-  "title": "Algabo - Alcohol en gel",
+  "title": "Prueba",
   "price": 150,
   "thumbnail": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/130/470/products/algabo-sanitizante-x750-original-77912741965391-94ae645e6db63370b415910195278197-640-0.png"
 }

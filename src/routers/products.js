@@ -11,7 +11,6 @@ const obj1 = await PersistenceFactory.getInstance(getPersistence())
 const obj2 = await PersistenceFactory.getInstance(getPersistence())
 
 console.log('Son iguales: ', obj1 === obj2)
-console.log(getPersistence())
 // console.log(obj1)
 // console.log(obj2)
 
